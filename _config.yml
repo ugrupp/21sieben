@@ -1,4 +1,16 @@
-name:        Your New Jekyll Site
-markdown:    redcarpet
-highlighter: pygments # or rouge or null
-exclude:     ["node_modules", "gulpfile.js", "package.json", "package-lock.json", "stylelint.config.js", "README.md", "gulp"]
+name:            Your New Jekyll Site
+author:          Urs Grupp
+email:           urs@21sieben.de
+github_username: ugrupp
+markdown:        kramdown
+highlighter:     pygments # or rouge or null
+exclude:
+  - node_modules
+  - gulpfile.js
+  - package.json
+  - package-lock.json
+  - stylelint.config.js
+  - README.md
+  - gulp
+  - Gemfile
+  - Gemfile.lock
