@@ -1,0 +1,21 @@
+---
+layout: default
+title: Your New Jekyll Site
+---
+
+<div id="home">
+  <h1>Blog Posts</h1>
+
+    <div class="o-container o-container--xsmall">
+        <div class="c-alert c-alert--error ">
+            <button class="c-button c-button--close">&times;</button>
+            It works?
+        </div>
+    </div>
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a class="c-heading u-super" href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

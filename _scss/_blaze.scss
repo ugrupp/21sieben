@@ -1,0 +1,12 @@
+// blaze settings override
+$border-radius: 0;
+$color-error: blue;
+
+// import blaze settings
+@import "blaze/scss/mixins/_settings.global.scss";
+
+// import blaze framework
+// TODO: split into single imports
+@import "blaze/scss/blaze.scss";
+
+// ... add class overrides here ...
