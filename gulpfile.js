@@ -19,6 +19,10 @@ var reporter = require('postcss-reporter');
 var notifier = require('node-notifier');
 var path = require('path');
 var fs = require('fs');
+var browserify = require('browserify');
+var envify = require('envify');
+var babelify = require('babelify');
+var buffer = require('vinyl-buffer');
 
 
 // Setup & Configuration
@@ -26,6 +30,7 @@ var fs = require('fs');
 
 // Read .env file and store its contents in process.env variable
 dotenv.config();
+var env = process.env.NODE_ENV;
 
 // get jekyll comand
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
@@ -46,6 +51,7 @@ config.proxyDomain = process.env.BROWSERSYNC_PROXY_DOMAIN || 'fred.dev';
 // destination directories
 config.dest = '_site/';
 config.destJS = config.dest + 'js';
+config.destJSRoot = 'js';
 config.destCSS = config.dest + 'css';
 config.destCSSRoot = 'css';
 
@@ -70,11 +76,11 @@ config.globs = {
  * Checks to see if a file exists.
  */
 function fileExists(filePath) {
-    try {
-        return fs.statSync(filePath).isFile();
-    } catch (err) {
-        return false;
-    }
+  try {
+    return fs.statSync(filePath).isFile();
+  } catch (err) {
+    return false;
+  }
 }
 
 // Get success icon
@@ -184,6 +190,68 @@ gulp.task('sass', function() {
 });
 
 
+// SCRIPTS TASK: Babelify, bundle, lint and minify JavaScript.
+//
+// Note:
+// * ES6 is supported
+// * that includes ES6 imports via browserify + babelify.
+// ==============================
+
+// TODO: Upgrade to babel 7
+// TODO: Check babel-polyfill + preset-env
+
+gulp.task('scripts', function() {
+  // log NODE_ENV
+  $.util.log('Building scripts with NODE_ENV:', env);
+
+  return gulp.src(config.entries.js, {
+      read: false
+    })
+    .pipe($.plumber({
+      errorHandler: plumberErrorHandler
+    }))
+    .pipe($.tap(function(file) {
+      // browserify inside gulp-tap, so plumbering still works.
+      file.contents = browserify({
+          entries: [file.path],
+          debug: env === 'development'
+        })
+        .transform(envify, {
+          _: 'purge',
+          global: true
+        })
+        .transform(babelify)
+        .bundle();
+    }))
+    .pipe(buffer()) // converts bundled stream, so it can be further processed
+    .pipe($.rename({
+      suffix: '.min'
+    }))
+    .pipe($.sourcemaps.init({
+      loadMaps: true
+    }))
+    .pipe($.uglify())
+    .pipe($.size({
+      showFiles: true
+    }))
+    .pipe($.sourcemaps.write('./'))
+    .pipe(gulp.dest(config.destJS))
+    .pipe(gulp.dest(config.destJSRoot))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
+
+// ESLINT TASK: Lint JavaScript
+// ==============================
+gulp.task('eslint', function() {
+  return gulp.src([config.globs.js])
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+});
+
+
 // WATCH TASK: Watch files for changes
 // ==============================
 gulp.task('watch', function() {
@@ -191,6 +259,12 @@ gulp.task('watch', function() {
   $.watch(config.globs.scss, function(vinyl) {
     $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
     gulp.start('sass');
+  });
+
+  // watch all script files, recompile scripts
+  $.watch(config.globs.js, function(vinyl) {
+    $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
+    gulp.start('scripts');
   });
 
   // watch all jekyll files, run jekyll & reload BrowserSync
@@ -205,7 +279,7 @@ gulp.task('watch', function() {
 // ==============================
 gulp.task('default', callback =>
   runSequence(
-    ['sass', 'jekyll-build'],
+    ['sass', 'scripts', 'jekyll-build'],
     'browser-sync',
     'watch',
     callback
@@ -217,7 +291,7 @@ gulp.task('default', callback =>
 // ==============================
 gulp.task('production', callback =>
   runSequence(
-    ['sass', 'jekyll-build'],
+    ['sass', 'scripts', 'jekyll-build'],
     callback
   )
 );

@@ -10,9 +10,14 @@
   "license": "",
   "devDependencies": {
     "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
     "browser-sync": "^2.18.13",
+    "browserify": "^14.5.0",
     "cssnano": "^3.10.0",
     "dotenv": "^4.0.0",
+    "envify": "^4.1.0",
     "fs": "0.0.1-security",
     "gulp": "^3.8.8",
     "gulp-load-plugins": "^1.5.0",
@@ -22,6 +27,8 @@
     "gulp-sass": "^2.3.2",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.1",
+    "gulp-tap": "^1.0.1",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "node-notifier": "^5.1.2",
@@ -31,13 +38,15 @@
     "run-sequence": "^2.2.0",
     "sass-module-importer": "^1.4.0",
     "stylelint": "^8.2.0",
-    "stylelint-config-standard": "^17.0.0"
+    "stylelint-config-standard": "^17.0.0",
+    "vinyl-buffer": "^1.0.0"
   },
   "repository": {},
   "keywords": [],
   "bugs": {},
   "homepage": "",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "blaze": "^3.6.1"
   },
   "browserslist": [
