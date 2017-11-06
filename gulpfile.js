@@ -30,7 +30,9 @@ var buffer = require('vinyl-buffer');
 
 // Read .env file and store its contents in process.env variable
 dotenv.config();
-var env = process.env.NODE_ENV;
+
+// NODE_ENV, should default to development
+var env = process.env.NODE_ENV || 'development';
 
 // get jekyll comand
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
