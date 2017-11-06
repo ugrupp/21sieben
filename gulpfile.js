@@ -1,6 +1,6 @@
 /**
  *
- * FRED gulpfile.js
+ * 21sieben website gulpfile.js
  *
  */
 
@@ -47,8 +47,8 @@ const $ = gulpLoadPlugins();
 var config = {};
 
 // base
-config.siteName = 'FRED';
-config.proxyDomain = process.env.BROWSERSYNC_PROXY_DOMAIN || 'fred.dev';
+config.siteName = '21sieben';
+config.proxyDomain = process.env.BROWSERSYNC_PROXY_DOMAIN || '21sieben.dev';
 
 // destination directories
 config.dest = '_site/';

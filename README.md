@@ -1,6 +1,6 @@
-# FRED – Jekyll theme
+# 21sieben
 
-Basic blogging theme
+Website for 21sieben Web Development
 
 ## Getting Started
 

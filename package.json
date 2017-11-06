@@ -1,7 +1,7 @@
 {
-  "name": "fred",
+  "name": "21sieben",
   "version": "1.0.0",
-  "description": "A Jekyll theme",
+  "description": "21sieben Website",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
