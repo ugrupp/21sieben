@@ -51,9 +51,13 @@ config.proxyDomain = process.env.BROWSERSYNC_PROXY_DOMAIN || 'fred.dev';
 // destination directories
 config.dest = '_site/';
 config.destJS = config.dest + 'js';
-config.destJSRoot = 'js';
 config.destCSS = config.dest + 'css';
+config.destSVG = config.dest + 'images/svg';
+
+// destination directories (root)
+config.destJSRoot = 'js';
 config.destCSSRoot = 'css';
+config.destSVGRoot = 'images/svg';
 
 // entry files
 config.entries = {
@@ -65,6 +69,7 @@ config.entries = {
 config.globs = {
   scss: '_scss/**/*.scss',
   js: '_js/**/*.js',
+  svg: '_images/svg/*.svg',
   jekyll: ['*.html', '_layouts/*.html', '_posts/*']
 };
 
@@ -145,7 +150,6 @@ gulp.task('browser-sync', function() {
 // Compiles files from _scss into /_site/css and /css
 // Also does the usual autoprefixer/minify/linting stuff
 // ==============================
-
 var postCSSPreProcessors = [
   stylelint(),
   reporter({
@@ -252,6 +256,39 @@ gulp.task('eslint', function() {
 });
 
 
+// SVG TASK: Create SVG spritemap
+// ==============================
+gulp.task('svg', function() {
+  var svgSpriteConfig = {
+    log: 'info',
+    svg: {
+      namespaceClassnames: false
+    },
+    mode: {
+      symbol: {
+        dest: '.',
+        sprite: 'sprite.svg'
+      }
+    }
+  };
+
+  return gulp.src(config.globs.svg)
+    .pipe($.plumber({
+      errorHandler: plumberErrorHandler
+    }))
+    .pipe($.svgSprite(svgSpriteConfig))
+    .pipe(gulp.dest(config.destSVG))
+    .pipe(gulp.dest(config.destSVGRoot));
+});
+
+/**
+ * Rebuild SVGs & do page reload
+ */
+gulp.task('svg-rebuild', ['svg'], function() {
+  browserSync.reload();
+});
+
+
 // WATCH TASK: Watch files for changes
 // ==============================
 gulp.task('watch', function() {
@@ -267,6 +304,12 @@ gulp.task('watch', function() {
     gulp.start('scripts');
   });
 
+  // watch all svg files, recompile SVG spritemap
+  $.watch(config.globs.svg, function(vinyl) {
+    $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
+    gulp.start('svg-rebuild');
+  });
+
   // watch all jekyll files, run jekyll & reload BrowserSync
   $.watch(config.globs.jekyll, function(vinyl) {
     $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
@@ -279,7 +322,7 @@ gulp.task('watch', function() {
 // ==============================
 gulp.task('default', callback =>
   runSequence(
-    ['sass', 'scripts', 'jekyll-build'],
+    ['sass', 'scripts', 'svg', 'jekyll-build'],
     'browser-sync',
     'watch',
     callback
@@ -291,7 +334,7 @@ gulp.task('default', callback =>
 // ==============================
 gulp.task('production', callback =>
   runSequence(
-    ['sass', 'scripts', 'jekyll-build'],
+    ['sass', 'scripts', 'svg', 'jekyll-build'],
     callback
   )
 );

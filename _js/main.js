@@ -1,2 +1,3 @@
-import "babel-polyfill"
+import 'svgxuse';
+import 'babel-polyfill';
 import './modules/test';

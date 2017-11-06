@@ -2,6 +2,7 @@
 # Compile target folders
 css
 js
+images
 
 ### Jekyll ###
 _site/
