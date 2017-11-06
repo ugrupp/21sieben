@@ -1,9 +1,19 @@
-const test = 12345;
+"use strict";
 
-console.log(test);
+let {prop1} = {
+  propOne: 'prop 1',
+  prop2: 'prop2',
+};
 
-var test2 = new Promise();
+var propOne, test3;
 
-if (process.env.NODE_ENV === "development") {
-  console.log('dev only');
+console.log(propOne == 3);
+
+if (true)
+{
+
+}
+
+if (process.env.NODE_ENV === 'development' && 'test' === 'yes' && 'test' === 'yes' && 'test' === 'yes' && 'test' === 'yes') {
+    console.log('dev only');
 }

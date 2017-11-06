@@ -206,7 +206,7 @@ gulp.task('sass', function() {
 // TODO: Upgrade to babel 7
 // TODO: Check babel-polyfill + preset-env
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['eslint'], function() {
   // log NODE_ENV
   $.util.log('Building scripts with NODE_ENV:', env);
 
