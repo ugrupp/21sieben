@@ -1,0 +1,28 @@
+.c-article {
+
+    @include redactor-tags;
+
+    // non-redactor tags (e.g. from toubiz)
+    ul {
+        list-style: square outside;
+        padding-left: 1em;
+    }
+
+    // spacing for everyone! (but a few exceptions)
+    * + *:not(li):not(br) {
+        margin-top: 1em;
+    }
+}
+
+p,
+ul,
+ol,
+h3 {
+    .c-article & {
+        @include typi('body-text');
+    }
+
+    .c-article--lg & {
+        @include typi('body-text--lg');
+    }
+}

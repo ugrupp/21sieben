@@ -1,21 +1,53 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: 21sieben
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
+<div class="splash">
+  <div class="splash__bg-gradient"></div>
+  <div class="splash__logobox">
+    <h1 class="logo">
+      <span class="logo__21">21</span><span class="logo__sieben">sieben</span>
+    </h1>
+  </div>
 
-    <div class="o-container o-container--xsmall">
-        <div class="c-alert c-alert--error ">
-            <button class="c-button c-button--close">&times;</button>
-            It works?
+  <div class="splash__claimbox">
+    <h2 class="claim">
+      <span class="claim__line claim__line--primary">
+        <span class="claim__line-inner">
+          <span class="claim__text">Urs Grupp</span>
+          <span class="claim__avatar">
+            <img src="https://randomuser.me/api/portraits/men/83.jpg" alt="Urs Grupp" />
+          </span>
+          <span class="claim__background"></span>
+        </span>
+      </span>
+      <span class="claim__line">
+        <span class="claim__line-inner">
+          <span class="claim__text">Frontend engineer</span><span class="claim__dot">.</span>
+          <span class="claim__background"></span>
+        </span>
+      </span>
+
+      <span class="claim__line">
+        <span class="claim__line-inner">
+          <span class="claim__text">UX/UI architect</span><span class="claim__dot">.</span>
+          <span class="claim__background"></span>
+        </span>
+      </span>
+    </h2>
+  </div>
+</div>
+
+<div class="content">
+  {% if site.skills | size %}
+    <div class="skills">
+      {% for skill in site.skills %}
+        <div class="skill">
+        {{ skill.title }}
         </div>
+      {% endfor %}
     </div>
+  {% endif %}
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a class="c-heading u-super" href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
 </div>

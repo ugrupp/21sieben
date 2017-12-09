@@ -1,4 +1,4 @@
-name:            Your New Jekyll Site
+name:            21sieben
 author:          Urs Grupp
 email:           urs@21sieben.de
 github_username: ugrupp
@@ -14,3 +14,6 @@ exclude:
   - gulp
   - Gemfile
   - Gemfile.lock
+collections:
+  skills:
+    output: true

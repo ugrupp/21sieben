@@ -1,0 +1,121 @@
+$gradient: $color-gradient;
+
+// Topbar
+.topbar {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    padding: 1.5em;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    line-height: 1;
+  }
+
+
+  // Menu
+  .menu {
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1em;
+
+    visibility: hidden;
+
+    @media (min-width: 35em) {
+      font-size: 1.5em;
+    }
+  }
+
+  .menu--visible {
+    visibility: visible;
+  }
+
+  .menu__list {
+    display: flex;
+    font-weight: 700;
+  }
+
+  .menu__item {
+    & + & {
+      margin-left: .25em;
+    }
+  }
+
+  .menu__link {
+    display: block;
+    color: inherit;
+    text-transform: none;
+    text-decoration: none;
+    padding: .5em;
+    position: relative;
+
+    &::before {
+      opacity: 0;
+      content: "";
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: $gradient;
+      border-radius: .1em;
+      transition: opacity .1s;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  // little 21sieben
+  .heidi {
+    // <a> reset
+    display: block;
+    text-decoration: none;
+
+    font-family: 'Alfa Slab One', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+    font-size: 2em;
+
+    visibility: hidden;
+  }
+
+  .heidi--visible {
+    visibility: visible;
+  }
+
+  .heidi__7 {
+    color: rgba(255,255,255,.6);
+
+    &::after {
+      content: "7";
+
+      @media (min-width: 35em) {
+        content: "sieben";
+      }
+    }
+  }
+
+  .heidi__7-text {
+    display: none;
+  }
+
+  .heidi + .menu {
+    margin-left: 1em;
+  }

@@ -72,7 +72,7 @@ config.globs = {
   scss: '_scss/**/*.scss',
   js: '_js/**/*.js',
   svg: '_images/svg/*.svg',
-  jekyll: ['*.html', '_layouts/*.html', '_posts/*']
+  jekyll: ['_config.yml', '*.html', '_layouts/*.html', '_posts/*', '_skills/*']
 };
 
 

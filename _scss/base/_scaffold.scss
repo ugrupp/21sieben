@@ -1,0 +1,8 @@
+// sets base font-sizing on html element
+@include typi-init;
+
+body {
+    font-family: $font-family-base;
+    color: $color-gray-4;
+    background-color: $color-gray-f;
+}

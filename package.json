@@ -49,6 +49,7 @@
   "bugs": {},
   "homepage": "",
   "dependencies": {
+    "animejs": "^2.2.0",
     "babel-polyfill": "^6.26.0",
     "blaze": "^3.6.1",
     "svgxuse": "^1.2.6"

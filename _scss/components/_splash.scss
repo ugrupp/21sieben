@@ -1,0 +1,158 @@
+$claim-font-weight: $font-weight-black;
+$linePadVertical: .15em;
+$linePadHorizontal: .25em;
+
+$gradientFallback: $color-gradient-fallback;
+$gradient: $color-gradient;
+
+$bgColorPrimary: $color-gray-3;
+
+// Layout
+.splash {
+    position: relative;
+    background-color: $bgColorPrimary;
+    height: 100vh;
+    overflow: hidden;
+    line-height: 1;
+  }
+
+  .splash__bg-gradient {
+    background-image: $gradient;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .splash__logobox,
+  .splash__claimbox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Logo styles
+  .logo {
+    font-family: 'Alfa Slab One', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14vw;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+    // hide initially
+    visibility: hidden;
+
+    @media (min-width: 55em) {
+      font-size: 12vw;
+    }
+  }
+
+  .logo--triggered {
+    visibility: visible;
+  }
+
+  .logo__21 {
+    color: white;
+  }
+
+  .logo__sieben {
+    color: rgba(0,0,0,.5);
+  }
+
+  // Claim styles
+  .claim {
+    font-size: 6vmin;
+    font-weight: $claim-font-weight;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+    // hide initially
+    visibility: hidden;
+
+    @media (min-width: 55em) {
+      font-size: 8vmin;
+    }
+  }
+
+  .claim--triggered {
+    visibility: visible;
+  }
+
+  .claim__line {
+    display: block;
+  }
+
+  .claim__line--primary {
+    margin-bottom: .25em;
+  }
+
+  .claim__line-inner {
+    display: inline-block;
+    position: relative;
+  }
+
+  .claim__text {
+    display: inline-block;
+    padding: $linePadVertical $linePadHorizontal;
+    position: relative;
+    z-index: 10;
+  }
+
+  .claim__letter {
+    display: inline-block;
+    transform-origin: top left;
+
+    .claim__line--primary & {
+      font-size: 2em;
+    }
+  }
+
+  .claim__dot {
+    display: inline-block;
+    margin-left: -$linePadHorizontal / 2;
+    position: relative;
+    z-index: 10;
+    color: $gradientFallback;
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .claim__background {
+    transform-origin: top left;
+    position: absolute;
+    background: $gradientFallback;
+    background: $gradient;
+    //background: purple; // the gradient is too cool, man ...
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .claim__avatar {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: block;
+
+    img {
+      width: 2em;
+      height: auto;;
+      display: block;
+      vertical-align: middle;
+      border-radius: 50%;
+
+      @media (min-width: 40em) {
+        width: 1.5em;
+      }
+    }
+  }

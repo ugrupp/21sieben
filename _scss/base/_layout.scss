@@ -1,0 +1,101 @@
+// Container Layout module
+// -------------------------
+
+$container-width: 1200px;
+$container-width--md: 1000px;
+$container-width--sm: 800px;
+$container-width--xs: 700px;
+$container-width--xxs: 600px;
+$container-padding: 20px;
+
+.l-container {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+
+    @include mappy-bp(sm) {
+        max-width: $container-width + ($container-padding * 2);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.l-container--md {
+    @include mappy-bp(sm) {
+        max-width: $container-width--md + ($container-padding * 2);
+    }
+}
+
+.l-container--sm {
+    @include mappy-bp(sm) {
+        max-width: $container-width--sm + ($container-padding * 2);
+    }
+}
+
+.l-container--xs {
+    @include mappy-bp(sm) {
+        max-width: $container-width--xs + ($container-padding * 2);
+    }
+}
+
+.l-container--xxs {
+    @include mappy-bp(sm) {
+        max-width: $container-width--xxs + ($container-padding * 2);
+    }
+}
+
+.l-container--tportal {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include mappy-bp(sm) {
+        max-width: 1170px;
+    }
+}
+
+
+// Content wrapper
+.l-main {
+    padding-top: 15em;
+    padding-bottom: 6em;
+}
+
+.l-main--no-spacing-top {
+    padding-top: 0;
+}
+
+// Barba page transitioning
+#barba-wrapper {
+    // for barba fade-out
+    background-color: $color-black;
+}
+
+.barba-container {
+    background-color: $color-gray-f;
+}
+
+/*
+.barba-loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: index($z-index, barba-loader);
+
+    background-color: $color-black;
+    color: $color-gray-f;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    opacity: 0;
+}
+
+.barba-loader__img {
+    width: 14em;
+    max-width: 100%;
+    padding: 1em;
+}
+*/

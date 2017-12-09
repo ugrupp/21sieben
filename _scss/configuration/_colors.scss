@@ -1,0 +1,25 @@
+// Main colors
+
+// Main gradient
+$color-gradient-fallback: #DD2476;
+$color-gradient: linear-gradient(90deg, #DD2476, #FF512F);
+
+// Alternative gradients
+$color-gradient: linear-gradient(to right, #fc4a1a, #f7b733);
+$color-gradient: linear-gradient(to right, #ff9966, #ff5e62);
+$color-gradient: linear-gradient(to right, #f2994a, #f2c94c);
+$color-gradient: linear-gradient(to right, #00b09b, #96c93d);
+$color-gradient: linear-gradient(to right, #f2994a, #FC502F);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+// Black & White
+$color-black: #000;
+$color-white: #fff;
+
+// Shades of gray
+$color-gray-f: #F4F0F1;
+$color-gray-d: #ddd;
+$color-gray-b: #b3b3b3;
+$color-gray-9: #999;
+$color-gray-4: #414141;
+$color-gray-3: #333;

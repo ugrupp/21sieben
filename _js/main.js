@@ -1,3 +1,4 @@
 import 'svgxuse';
 import 'babel-polyfill';
-import './modules/test';
+
+import './modules/splash';

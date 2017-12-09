@@ -1,0 +1,21 @@
+// Breakpoints
+$breakpoints: (
+    'xs': 480px,
+    'sm': 768px,
+    'md': 1025px,
+    'lg': 1200px,
+    'xl': 1400px
+);
+
+// Transition timing
+$transition-time-default: .2s;
+$transition-time-medium:  .5s;
+$transition-time-long:    .8s;
+
+// Fixed heights
+$fixed-button-form-height: 42px;
+$fixed-button-form-height-lg: 60px;
+$fixed-button-overlay-height: 50px;
+
+// z-index indexes
+$z-index: outdooractive, teaser-content, article-slider, product-slider, hero, hero-slider, topbar, overlay-group, overlay, overlay-buttons, lightbox, cookieconsent, barba-loader, pace;

@@ -1,6 +1,24 @@
-@import 'blaze';
-@import 'components/icons';
+// Pre-configuration vendor & libraries
+@import 'vendor/mappy-breakpoints';
+@import 'vendor/typi/typi';
 
-body {
-  display: flex;
-}
+// Configuration
+@import 'configuration/colors';
+@import 'configuration/settings';
+@import 'configuration/typography';
+
+// Utility
+@import 'utility/mixins';
+@import 'utility/utility';
+
+// Base
+@import 'base/reset';
+@import 'base/blaze';
+@import 'base/scaffold';
+@import 'base/layout';
+//@import 'base/article';
+
+// Components
+//@import 'components/icons';
+@import 'components/splash';
+@import 'components/topbar';
