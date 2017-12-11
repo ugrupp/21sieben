@@ -120,10 +120,7 @@ $bgColorPrimary: $color-gray-3;
     margin-left: -$linePadHorizontal / 2;
     position: relative;
     z-index: 10;
-    color: $gradientFallback;
-    background: $gradient;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include gradient-text;
   }
 
   .claim__background {

@@ -1,0 +1,108 @@
+// Skills overview
+.c-skills__primary {
+  margin-top: 1em;
+}
+
+.c-skills__primary + .c-skills__secondary {
+  margin-top: 2em;
+
+  @include mappy-bp(md) {
+    margin-top: 3.75em;
+  }
+}
+
+// Skill
+
+// watermark icon sizes
+$skill-icon-size-null: 5em;
+$skill-icon-size-sm: 10em;
+$skill-icon-size-md: 18em;
+
+.c-skill {
+  background: $color-white;
+  box-shadow: 0 2em 6em 1em rgba(0, 0, 0, .1);
+  padding: 2em;
+  border-radius: .5em;
+  position: relative; // for watermark and to prevent overlapping shadow
+
+  @include mappy-bp(sm) {
+    padding: 3em;
+  }
+
+  @include mappy-bp(md) {
+    padding: 3em 4em;
+  }
+}
+
+.c-skill--icon {
+  @include mappy-bp(md) {
+    &:nth-of-type(odd) {
+      padding-left: $skill-icon-size-md + 2em;
+    }
+
+    &:nth-of-type(even) {
+      padding-right: $skill-icon-size-md + 2em;
+    }
+  }
+}
+
+.c-skill--primary {
+  background: $gradientFallback;
+  background: $gradient;
+  color: $color-white;
+  @include font-smoothing();
+
+  & + & {
+    margin-top: 2em;
+
+    @include mappy-bp(md) {
+      margin-top: 3.75em;
+    }
+  }
+}
+
+.c-skill__content {
+  margin-top: 1em;
+}
+
+// Tags
+.c-skill__tags {
+  margin-top: 1.5em;
+}
+
+.c-skill__tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -.2em;
+}
+
+.c-skill__tag {
+  margin: .2em;
+  padding: .2em .5em;
+  background: rgba(255, 255, 255, .15);
+  border-radius: .25em;
+  @include typi('article');
+}
+
+// Watermark icon. Hidden on mobile
+.c-skill__icon {
+  display: none;
+
+  @include mappy-bp(md) {
+    display: block;
+  }
+
+  color: rgba(255, 255, 255, .15);
+  height: $skill-icon-size-md;
+  width: $skill-icon-size-md;
+  position: absolute;
+  bottom: 0;
+
+  .c-skill--icon:nth-of-type(odd) & {
+    left: 0;
+  }
+
+  .c-skill--icon:nth-of-type(even) & {
+    right: 0;
+  }
+}

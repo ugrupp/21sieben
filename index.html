@@ -40,14 +40,27 @@ title: 21sieben
 </div>
 
 <div class="content">
-  {% if site.skills | size %}
-    <div class="skills">
-      {% for skill in site.skills %}
-        <div class="skill">
-        {{ skill.title }}
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
+  <div class="c-skills">
+    <div class="l-container">
+      <h3 class="c-skills__title c-headline c-headline--alpha c-headline--gradient">Skills</h3>
 
+      {% comment %} Loop through primary skills {% endcomment %}
+      <div class="c-skills__primary">
+        {% for skill in site.skills %}
+          {% if skill.primary %}
+            {% include skills/skill.html %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% comment %} Loop through non-primary skills {% endcomment %}
+      <div class="c-skills__secondary">
+        {% for skill in site.skills %}
+          {% unless skill.primary %}
+            {% include skills/skill.html %}
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>

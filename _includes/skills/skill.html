@@ -1,0 +1,27 @@
+<div class="c-skill {% if skill.primary %}c-skill--primary{% else %}c-skill--secondary{% endif %}{% if skill.icon %} c-skill--icon{% endif %}">
+  {% comment %} Title {% endcomment %}
+  <h4 class="c-skill__headline c-headline c-headline--beta{% unless skill.primary %} c-headline--gradient{% endunless %}">{{ skill.title }}</h4>
+
+  {% comment %} Content {% endcomment %}
+  {% if skill.content %}
+    <div class="c-skill__content c-article">{{ skill.content }}</div>
+  {% endif %}
+
+  {% comment %} Tags {% endcomment %}
+  {% if skill.tags.size > 0 %}
+    <div class="c-skill__tags">
+      <ul class="c-skill__tags-list">
+        {% for tag in skill.tags %}
+          <li class="c-skill__tag">{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% comment %} Watermark icon {% endcomment %}
+  {% if skill.icon %}
+    <div class="c-skill__icon">
+      <svg class="o-icon o-icon--fitparent"><use xlink:href="/images/svg/sprite.svg#{{ skill.icon }}"></use></svg>
+    </div>
+  {% endif %}
+</div>

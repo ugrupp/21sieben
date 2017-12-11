@@ -7,3 +7,10 @@
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+
+@mixin gradient-text {
+  color: $color-gradient-fallback;
+  background: $color-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,18 @@
+.c-headline {
+  font-weight: $font-weight-bold;
+  word-wrap: break-word;
+  display: block;
+  hyphens: auto;
+}
+
+.c-headline--alpha {
+  @include typi('headline--alpha');
+}
+
+.c-headline--beta {
+  @include typi('headline--beta');
+}
+
+.c-headline--gradient {
+  @include gradient-text;
+}

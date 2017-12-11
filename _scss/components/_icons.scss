@@ -5,3 +5,8 @@
   overflow: hidden;
   vertical-align: -.15em; // magic number? keep an eye on this
 }
+
+.o-icon--fitparent {
+  height: 100%;
+  width: 100%;
+}

@@ -1,6 +1,7 @@
 ---
 title: HTML & CSS
 primary: true
+icon: css3
 tags:
 - SASS
 - LESS
@@ -14,7 +15,5 @@ tags:
 - Fractal
 - Bootstrap
 ---
-
-# JavaScript
 
 I’m building responsive, modular, cross-browser compatible, maintainable, extendable and valid frontend components, based on CSS3+ and HTML5.
