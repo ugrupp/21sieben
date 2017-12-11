@@ -14,8 +14,6 @@
 // Skill
 
 // watermark icon sizes
-$skill-icon-size-null: 5em;
-$skill-icon-size-sm: 10em;
 $skill-icon-size-md: 18em;
 
 .c-skill {
@@ -36,13 +34,7 @@ $skill-icon-size-md: 18em;
 
 .c-skill--icon {
   @include mappy-bp(md) {
-    &:nth-of-type(odd) {
-      padding-left: $skill-icon-size-md + 2em;
-    }
-
-    &:nth-of-type(even) {
-      padding-right: $skill-icon-size-md + 2em;
-    }
+    padding-right: $skill-icon-size-md + 2em;
   }
 }
 
@@ -97,12 +89,5 @@ $skill-icon-size-md: 18em;
   width: $skill-icon-size-md;
   position: absolute;
   bottom: 0;
-
-  .c-skill--icon:nth-of-type(odd) & {
-    left: 0;
-  }
-
-  .c-skill--icon:nth-of-type(even) & {
-    right: 0;
-  }
+  right: 0;
 }

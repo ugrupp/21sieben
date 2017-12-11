@@ -39,28 +39,42 @@ title: 21sieben
   </div>
 </div>
 
-<div class="content">
-  <div class="c-skills">
-    <div class="l-container">
-      <h3 class="c-skills__title c-headline c-headline--alpha c-headline--gradient">Skills</h3>
+<div class="l-main__sections">
+  {% comment %} Skills section {% endcomment %}
+  <section class="l-main__section l-main__section--skills">
+    <div class="l-main__section-content">
+      <article class="c-skills">
+        <div class="l-container">
+          <h3 class="c-skills__title c-headline c-headline--alpha c-headline--gradient">Skills</h3>
 
-      {% comment %} Loop through primary skills {% endcomment %}
-      <div class="c-skills__primary">
-        {% for skill in site.skills %}
-          {% if skill.primary %}
-            {% include skills/skill.html %}
-          {% endif %}
-        {% endfor %}
-      </div>
+          {% comment %} Loop through primary skills {% endcomment %}
+          <div class="c-skills__primary">
+            {% for skill in site.skills %}
+              {% if skill.primary %}
+                {% include skills/skill.html %}
+              {% endif %}
+            {% endfor %}
+          </div>
 
-      {% comment %} Loop through non-primary skills {% endcomment %}
-      <div class="c-skills__secondary">
-        {% for skill in site.skills %}
-          {% unless skill.primary %}
-            {% include skills/skill.html %}
-          {% endunless %}
-        {% endfor %}
+          {% comment %} Loop through non-primary skills {% endcomment %}
+          <div class="c-skills__secondary">
+            {% for skill in site.skills %}
+              {% unless skill.primary %}
+                {% include skills/skill.html %}
+              {% endunless %}
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  {% comment %} Contact section {% endcomment %}
+  <section class="l-main__section l-main__section--contact l-main__section--inverted">
+    <div class="l-main__section-content">
+      <div class="l-container">
+        Contact
       </div>
     </div>
-  </div>
+  </section>
 </div>
