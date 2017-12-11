@@ -57,7 +57,12 @@ title: 21sieben
           </div>
 
           {% comment %} Loop through non-primary skills {% endcomment %}
-          <div class="c-skills__secondary">
+          <div class="c-skills__secondary c-skills__masonry" data-masonry-grid>
+            {% comment %} Masonry columns {% endcomment %}
+            <div class="c-skills__masonry-col" data-masonry-col></div>
+            <div class="c-skills__masonry-col" data-masonry-col></div>
+
+            {% comment %} Masonry items {% endcomment %}
             {% for skill in site.skills %}
               {% unless skill.primary %}
                 {% include skills/skill.html %}

@@ -16,3 +16,7 @@
 .c-headline--gradient {
   @include gradient-text;
 }
+
+.c-headline--inverted {
+  color: $color-gradient-fallback;
+}

@@ -9,13 +9,13 @@
     width: 100%;
     height: 500px;
     background-color: $color-gray-f;
-    transform: skewY(-6deg);
+    transform: skewY(6deg);
     z-index: 0;
     top: -84px;
     left: 0;
 
     @include mappy-bp(md) {
-      transform: skewY(-3deg);
+      transform: skewY(3deg);
     }
   }
 }

@@ -1,4 +1,5 @@
-// Skills overview
+$skills-main-spacing: 3em;
+
 .c-skills__primary {
   margin-top: 1em;
 }
@@ -7,28 +8,49 @@
   margin-top: 2em;
 
   @include mappy-bp(md) {
-    margin-top: 3.75em;
+    margin-top: $skills-main-spacing;
   }
 }
 
-// Skill
+// Skills masonry
+.c-skills__masonry {
+  display: grid;
+  grid-gap: 2em;
 
-// watermark icon sizes
+  @include mappy-bp(md) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $skills-main-spacing;
+  }
+}
+
+.c-skills__masonry-col {
+  > * + * {
+    margin-top: 2em;
+
+    @include mappy-bp(md) {
+      margin-top: $skills-main-spacing;
+    }
+  }
+}
+
+
+// Single skill
 $skill-icon-size-md: 18em;
 
 .c-skill {
   background: $color-white;
   box-shadow: 0 2em 6em 1em rgba(0, 0, 0, .1);
-  padding: 2em;
+  padding: 1.5em;
   border-radius: .5em;
+
   position: relative; // for watermark and to prevent overlapping shadow
+
+  @include mappy-bp(xs) {
+    padding: 2em;
+  }
 
   @include mappy-bp(sm) {
     padding: 3em;
-  }
-
-  @include mappy-bp(md) {
-    padding: 3em 4em;
   }
 }
 
@@ -48,7 +70,39 @@ $skill-icon-size-md: 18em;
     margin-top: 2em;
 
     @include mappy-bp(md) {
-      margin-top: 3.75em;
+      margin-top: $skills-main-spacing;
+    }
+  }
+}
+
+.c-skill--secondary {
+  @include font-smoothing(); // looks shit without it .. for no real reason
+  padding-top: 2.5em;
+
+  @include mappy-bp(xs) {
+    padding-top: 3em;
+  }
+
+  @include mappy-bp(sm) {
+    padding-top: 4em;
+  }
+
+  // top border
+  &::before {
+    content: "";
+    height: 1em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: $gradientFallback;
+
+    border-radius: .5em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    @include mappy-bp(sm) {
+      height: 1.5em;
     }
   }
 }
@@ -71,9 +125,18 @@ $skill-icon-size-md: 18em;
 .c-skill__tag {
   margin: .2em;
   padding: .2em .5em;
-  background: rgba(255, 255, 255, .15);
   border-radius: .25em;
   @include typi('article');
+
+  .c-skill--primary & {
+    background: rgba(255, 255, 255, .15);
+  }
+
+  .c-skill--secondary & {
+    background: rgba(0, 0, 0, .1);
+    color: $color-text;
+    @include font-smoothing;
+  }
 }
 
 // Watermark icon. Hidden on mobile

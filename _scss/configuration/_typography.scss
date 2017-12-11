@@ -13,22 +13,24 @@ $typi-breakpoint: mappy-bp;
 
 // Font Sizing
 $typi: (
-    // Base for <html>, will be inherited
-    base: (
-        null: (16px, 1.2)
-    ),
+  // Base for <html>, will be inherited
+  base: (
+    null: (16px, 1.2)
+  ),
 
-    article: (
-        null: (18px, 1.5),
-        sm: (24px)
-    ),
+  article: (
+    null: (16px, 1.5),
+    xs: (18px),
+    sm: (21px)
+  ),
 
-    headline--alpha: (
-        null: (100px, 1.2),
-        md: (150px)
-    ),
+  headline--alpha: (
+    null: (100px, 1.2),
+    md: (180px)
+  ),
 
-    headline--beta: (
-        null: (36px, 1.2),
-    )
+  headline--beta: (
+    null: (24px, 1.2),
+    sm: (36px)
+  )
 );
