@@ -3,22 +3,66 @@
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
-    position: absolute;
-    width: 100%;
     height: 500px;
     background-color: $color-gray-f;
-    transform: skewY(6deg);
-    z-index: 0;
-    top: -84px;
+    position: absolute;
+    top: 0;
     left: 0;
+    right: 0;
+    z-index: 0;
+    transition: all .4s cubic-bezier(0.29, 1.85, 1, 1);
+    visibility: hidden;
+    transform: skewY(6deg);
 
     @include mappy-bp(md) {
       transform: skewY(3deg);
     }
   }
+
+  // only skew it once splash animation is fonished
+  .is-splash-finished &::before {
+    visibility: visible;
+    transform: translateY(-84px) skewY(6deg);
+
+    @include mappy-bp(md) {
+      transform: translateY(-84px) skewY(3deg);
+    }
+  }
 }
+
+.l-main__section--scrollhint {
+  &::after {
+    content: "▼ " attr(data-section);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 2em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, .3);
+    font-weight: $font-weight-black;
+    @include font-smoothing();
+    transition: all .4s cubic-bezier(0.29, 1.85, 1, 1);
+    opacity: 0;
+  }
+
+  .is-splash-finished &::after {
+    opacity: 1;
+    transform: translateY(-84px);
+  }
+
+  // body class 'has-scrolled' hides the hint
+  .has-scrolled &::after {
+    opacity: 0;
+  }
+}
+
+
+
 
 .l-main__section--inverted {
   background-color: $color-gradient-fallback;

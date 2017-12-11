@@ -93,6 +93,15 @@ claimTimeline.add({
   duration: animDurationMenu,
   begin() {
     menuEl.classList.add('menu--visible')
+  },
+});
+
+// animation complete => set body flag
+claimTimeline.add({
+  targets: document.body,
+  duration: 1,
+  complete() {
+    document.body.classList.add('is-splash-finished');
   }
 });
 
