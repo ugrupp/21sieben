@@ -1,6 +1,22 @@
 .l-main__section {
-  padding: 3em 0;
+  background-color: $color-gray-3;
+  color: $color-white;
+  @include font-smoothing;
+
+  padding: 0 0 8em;
   position: relative;
+
+  @include mappy-bp(xs) {
+    padding: 0 0 9em;
+  }
+
+  @include mappy-bp(sm) {
+    padding: 0 0 11em;
+  }
+
+  @include mappy-bp(xl) {
+    padding: 4em 0 12em;
+  }
 
   &::before {
     text-align: center;
@@ -14,7 +30,7 @@
     padding-bottom: 1em;
 
     content: "";
-    background-color: $color-gray-f;
+    background-color: $color-gray-3;
     position: absolute;
     bottom: 100%;
     left: 0;
@@ -58,18 +74,16 @@
   }
 }
 
-
-
-
 .l-main__section--inverted {
-  background-color: $color-gradient-fallback;
+  background-image: $color-gradient;
   color: $color-white;
   @include font-smoothing;
 
   &::before {
-    background-color: $color-gradient-fallback;
+    background-image: $color-gradient;
   }
 }
+
 
 .l-main__section-content {
   position: relative;

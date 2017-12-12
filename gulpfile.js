@@ -48,7 +48,7 @@ var config = {};
 
 // base
 config.siteName = '21sieben';
-config.proxyDomain = process.env.BROWSERSYNC_PROXY_DOMAIN || '21sieben.dev';
+config.proxyDomain = process.env.BROWSERSYNC_PROXY_DOMAIN || '21sieben.test';
 
 // destination directories
 config.dest = '_site/';

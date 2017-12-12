@@ -5,12 +5,11 @@
 
     &::before {
       content: '';
-      opacity: 0;
       position: absolute;
       left: 0;
       right: 0;
       top: 100%;
-      height: 2px;
+      height: 3px;
       background: $color-gradient;
       transition: all $transition-time-default;
       transform: scaleY(0);
@@ -18,7 +17,6 @@
     }
 
     &:hover::before {
-      opacity: 1;
       transform: scaleY(1);
     }
   }
@@ -35,7 +33,7 @@
 
   strong,
   b {
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-black;
   }
 
   del {
@@ -63,5 +61,8 @@ ol,
 h3 {
   .c-article & {
     @include typi("article");
+  }
+  .c-article--lg & {
+    @include typi("article--lg");
   }
 }

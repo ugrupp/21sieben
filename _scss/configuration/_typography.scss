@@ -24,9 +24,18 @@ $typi: (
     sm: (21px)
   ),
 
+  article--lg: (
+    null: (16px, 1.5),
+    xs: (18px),
+    sm: (21px),
+    md: (24px)
+  ),
+
   headline--alpha: (
-    null: (100px, 1.2),
-    md: (180px)
+    null: (50px, 1.2),
+    sm: (100px),
+    md: (130px),
+    xl: (180px)
   ),
 
   headline--beta: (
