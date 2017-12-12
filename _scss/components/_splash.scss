@@ -40,7 +40,7 @@ $bgColorPrimary: $color-gray-3;
 
   // Logo styles
   .logo {
-    font-family: 'Alfa Slab One', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: $font-family-ci;
     font-size: 14vw;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;

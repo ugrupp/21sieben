@@ -53,6 +53,12 @@
   * + *:not(li):not(br) {
     margin-top: 1em;
   }
+
+  .c-21sieben-inline {
+    font-family: $font-family-ci;
+    font-weight: $font-weight-normal;
+  }
+
 }
 
 p,

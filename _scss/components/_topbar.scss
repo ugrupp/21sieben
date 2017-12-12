@@ -1,9 +1,7 @@
-$gradient: $color-gradient;
-
 // Topbar
 .topbar {
     position: absolute;
-    z-index: 10;
+    z-index: index($z-index, topbar);;
     left: 0;
     right: 0;
     top: 0;
@@ -64,7 +62,7 @@ $gradient: $color-gradient;
       right: 0;
       bottom: 0;
       top: 0;
-      background: $gradient;
+      background: $color-gradient;
       border-radius: .1em;
       transition: opacity .1s;
     }
@@ -86,7 +84,7 @@ $gradient: $color-gradient;
     display: block;
     text-decoration: none;
 
-    font-family: 'Alfa Slab One', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: $font-family-ci;
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

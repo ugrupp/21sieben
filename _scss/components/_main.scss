@@ -17,59 +17,55 @@
   @include mappy-bp(xl) {
     padding: 4em 0 12em;
   }
+}
 
-  &::before {
-    text-align: center;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, .3);
-    font-weight: $font-weight-black;
-    @include font-smoothing();
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 1em;
+// skewed edge
+.l-main__section-edge {
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, .3);
+  font-weight: $font-weight-black;
+  @include font-smoothing();
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 1em;
 
-    content: "";
-    background-color: $color-gray-3;
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    z-index: 0;
-    transition: all .4s;
-    visibility: hidden;
-    transform: translateY(100%);
+  background-color: $color-gray-3;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  z-index: index($z-index, section-edge);;
+  transition: all .4s;
+  visibility: hidden;
+  transform: translateY(100%);
 
-    // skew the layer using clip mask (screw IE)
-    clip-path: polygon(0 0, 100% 40%, 100% 100%, 0% 100%);
-    height: 4em;
+  // skew the layer using clip mask (screw IE)
+  clip-path: polygon(0 0, 100% 40%, 100% 100%, 0% 100%);
+  height: 4em;
 
-    @include mappy-bp(xs) {
-      clip-path: polygon(0 0, 100% 60%, 100% 100%, 0% 100%);
-      height: 5em;
-    }
-
-    @include mappy-bp(xl) {
-      clip-path: polygon(0 0, 100% 80%, 100% 100%, 0% 100%);
-      height: 6em;
-    }
+  @include mappy-bp(xs) {
+    clip-path: polygon(0 0, 100% 60%, 100% 100%, 0% 100%);
+    height: 5em;
   }
 
-  // show skewed section if animation has finished or user has scrolled
-  .is-splash-finished &::before,
-  .has-scrolled &::before {
+  @include mappy-bp(xl) {
+    clip-path: polygon(0 0, 100% 80%, 100% 100%, 0% 100%);
+    height: 6em;
+  }
+
+  // show edge if animation has finished or user has scrolled
+  .is-splash-finished &,
+  .has-scrolled & {
     visibility: visible;
     transform: none;
   }
 }
 
-.l-main__section--scrollhint {
-  &::before {
-    content: "▼ " attr(data-section);
-  }
-
+.l-main__section-edge--scrollhint {
   // body class 'has-scrolled' hides the hint
-  .has-scrolled &::before {
+  .has-scrolled & {
     color: transparent;
   }
 }
@@ -79,7 +75,7 @@
   color: $color-white;
   @include font-smoothing;
 
-  &::before {
+  .l-main__section-edge {
     background-image: $color-gradient;
   }
 }
@@ -87,5 +83,5 @@
 
 .l-main__section-content {
   position: relative;
-  z-index: 10;
+  z-index: index($z-index, section);;
 }
