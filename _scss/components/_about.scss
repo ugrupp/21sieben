@@ -1,0 +1,49 @@
+.c-about__cols {
+  margin-top: 2em;
+
+  @include mappy-bp(sm) {
+    display: flex;
+  }
+}
+
+.c-about__portrait-wrapper {
+  width: 15em;
+  max-width: 100%;
+  flex-shrink: 0;
+  height: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  //transform: skew(0, 3deg);
+
+  @include mappy-bp(sm) {
+    width: 12em;
+    margin-top: 0;
+    margin-left: 2em;
+
+    transform: translateY(-15%);
+  }
+
+  @include mappy-bp(md) {
+    margin-left: 4em;
+    width: 20em;
+  }
+
+  // spans beyond container on xl
+  @include mappy-bp(xl) {
+    margin-left: 1em;
+    width: 23em;
+    transform: translateY(-15%) translateX(3em);
+  }
+}
+
+.c-about__portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .5em;
+  box-shadow:
+    0 2em 6em 1em rgba(0, 0, 0, .25), // drop shadow
+    1em 1em 0 0 rgba(0, 0, 0, .1); // opaque bg
+}
