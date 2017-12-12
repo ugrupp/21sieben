@@ -1,34 +1,35 @@
-$skills-main-spacing: 3em;
+$skills-main-spacing: 2em;
+$skills-main-spacing-md: 3em;
 
 .c-skills__primary {
   margin-top: 1em;
 }
 
 .c-skills__primary + .c-skills__secondary {
-  margin-top: 2em;
+  margin-top: $skills-main-spacing;
 
   @include mappy-bp(md) {
-    margin-top: $skills-main-spacing;
+    margin-top: $skills-main-spacing-md;
   }
 }
 
 // Skills masonry
 .c-skills__masonry {
   display: grid;
-  grid-gap: 2em;
+  grid-gap: $skills-main-spacing;
 
   @include mappy-bp(md) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: $skills-main-spacing;
+    grid-gap: $skills-main-spacing-md;
   }
 }
 
 .c-skills__masonry-col {
   > * + * {
-    margin-top: 2em;
+    margin-top: $skills-main-spacing;
 
     @include mappy-bp(md) {
-      margin-top: $skills-main-spacing;
+      margin-top: $skills-main-spacing-md;
     }
   }
 }
@@ -40,7 +41,6 @@ $skill-icon-size-md: 18em;
 .c-skill {
   background: $color-white;
   color: $color-text;
-  //box-shadow: 0 2em 6em 1em rgba(0, 0, 0, .1);
   box-shadow: 0 2em 6em .5em rgba(0, 0, 0,.1);
   padding: 1.5em;
   border-radius: .5em;
@@ -69,10 +69,10 @@ $skill-icon-size-md: 18em;
   @include font-smoothing();
 
   & + & {
-    margin-top: 2em;
+    margin-top: $skills-main-spacing;
 
     @include mappy-bp(md) {
-      margin-top: $skills-main-spacing;
+      margin-top: $skills-main-spacing-md;
     }
   }
 }
@@ -98,6 +98,7 @@ $skill-icon-size-md: 18em;
     right: 0;
     top: 0;
     background: $gradientFallback;
+    background: $gradient;
 
     border-radius: .5em;
     border-bottom-left-radius: 0;
@@ -107,8 +108,23 @@ $skill-icon-size-md: 18em;
       height: 1.5em;
     }
   }
+
+
+  // span top border gradient across two columns
+  .c-skills__masonry-col &::before {
+    @include mappy-bp(md) {
+      background-size: calc(200% + #{$skills-main-spacing-md});
+    }
+  }
+
+  .c-skills__masonry-col:last-of-type &::before {
+    @include mappy-bp(sm) {
+      background-position: right;
+    }
+  }
 }
 
+// Text/content
 .c-skill__content {
   margin-top: 1em;
 }
