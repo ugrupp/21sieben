@@ -22,8 +22,7 @@
 // skewed edge
 .l-main__section-edge {
   text-align: center;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, .3);
+  color: transparent;
   @include font-smoothing();
   font-weight: $font-weight-black;
   display: flex;
@@ -64,7 +63,12 @@
 }
 
 .l-main__section-edge--scrollhint {
-  // body class 'has-scrolled' hides the hint
+  // body flag 'splash finished' shows the hint
+  .is-splash-finished & {
+    color: rgba(0, 0, 0, .3);
+  }
+
+  // body flag 'has-scrolled' hides the hint
   .has-scrolled & {
     color: transparent;
   }

@@ -55,8 +55,7 @@
   }
 
   .c-21sieben-inline {
-    font-family: $font-family-ci;
-    font-weight: $font-weight-normal;
+    @extend .c-21sieben-inline;
   }
 
 }

@@ -29,8 +29,10 @@ $color-gray-9: #999;
 $color-gray-4: #414141;
 $color-gray-3: #333;
 
+$color-darkblue: #303e43;
+
 // Content colors
-$color-text: #303e43;
+$color-text: $color-darkblue;
 $color-text-inverted: $color-gradient-fallback;
 
 $color-section-bg: $color-bg;

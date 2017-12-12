@@ -1,0 +1,32 @@
+.c-hire__cols {
+  margin-top: 2em;
+
+  @include mappy-bp(sm) {
+    display: flex;
+  }
+}
+
+.c-hire__links {
+  margin-top: 3em;
+  background: rgba(0, 0, 0, .1);
+
+  @include mappy-bp(sm) {
+    margin-top: 0;
+    margin-left: 2em;
+    width: 20em;
+
+    transform: translateY(-15%);
+  }
+
+  @include mappy-bp(md) {
+    width: 20em;
+  }
+}
+
+.c-hire__cta {
+  margin-top: 1em;
+
+  @include mappy-bp(sm) {
+    margin-top: 2em;
+  }
+}

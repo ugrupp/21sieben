@@ -1,3 +1,4 @@
+// Headlines
 .c-headline {
   font-weight: $font-weight-bold;
   word-wrap: break-word;
@@ -19,4 +20,11 @@
 
 .c-headline--inverted {
   color: $color-gradient-fallback;
+}
+
+
+// Inline logo
+.c-21sieben-inline {
+  font-family: $font-family-ci;
+  font-weight: $font-weight-normal;
 }
