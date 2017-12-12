@@ -1,17 +1,17 @@
 .l-main__section {
-  background-color: $color-gray-3;
+  background-color: $color-section-bg;
   color: $color-white;
   @include font-smoothing;
 
-  padding: 0 0 8em;
+  padding: 1em 0 8em;
   position: relative;
 
   @include mappy-bp(xs) {
-    padding: 0 0 9em;
+    padding: 1em 0 9em;
   }
 
   @include mappy-bp(sm) {
-    padding: 0 0 11em;
+    padding: 1em 0 11em;
   }
 
   @include mappy-bp(xl) {
@@ -31,7 +31,7 @@
   align-items: flex-end;
   padding-bottom: 1em;
 
-  background-color: $color-gray-3;
+  background-color: $color-section-bg;
   position: absolute;
   bottom: 100%;
   left: 0;
