@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/main.min.css">
   </head>
   <body>
+    {% comment %} Topbar {% endcomment %}
     <div class="topbar">
       <a href="/" class="heidi">
         <span class="heidi__21">21</span><span class="heidi__7"><span class="heidi__7-text">sieben</span></span>
@@ -32,12 +33,41 @@
     </div>
 
     <main class="l-main">
+      {% comment %} Content {% endcomment %}
       {{ content }}
-    </main>
 
-    <footer>
-      Footer
-    </footer>
+      {% comment %} Footer section {% endcomment %}
+      <footer class="l-main__section l-main__section--footer l-main__section--dark" id="footer">
+        <a href="#footer" class="l-main__section-edge"></a>
+        <div class="l-main__section-content">
+          <div class="c-footer">
+            <div class="l-container">
+              <div class="c-footer__cols">
+                <nav class="c-footer__nav">
+                  <ul>
+                    <li>
+                      <a href="#about">About</a>
+                    </li>
+                    <li>
+                      <a href="#skills">Skills</a>
+                    </li>
+                    <li>
+                      <a href="#contact">Contact</a>
+                    </li>
+                    <li>
+                      <a href="/imprint.html">Imprint</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div class="c-article c-article--sm">
+                  <p>&copy; {{ 'now' | date: "%Y" }}. Designed and developed with 💖 by <span class="c-21sieben-inline">21sieben</span>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
 
     <script src="/js/main.min.js"></script>
 

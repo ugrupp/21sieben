@@ -3,23 +3,76 @@
 
   @include mappy-bp(sm) {
     display: flex;
+    align-items: flex-start;
   }
 }
 
 .c-hire__links {
-  margin-top: 3em;
-  background: rgba(0, 0, 0, .1);
+  padding-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -.5em;
 
   @include mappy-bp(sm) {
-    margin-top: 0;
-    margin-left: 2em;
-    width: 20em;
+    min-width: 15em;
 
+    padding-top: 0;
+    margin-left: 3em;
     transform: translateY(-15%);
   }
 
   @include mappy-bp(md) {
-    width: 20em;
+    min-width: 20em;
+  }
+}
+
+.c-hire__link-item {
+  padding: .5em;
+
+  @include mappy-bp(sm) {
+    width: 50%;
+  }
+}
+
+.c-hire__link {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+  background: rgba(255, 255, 255, .15);
+  color: inherit;
+  padding: 1.5em 2em;
+  //box-shadow: 0 1em 4em rgba(0, 0, 0, .1);
+  border-radius: .5em;
+  text-align: center;
+  transition: background $transition-time-default;
+
+  &:hover {
+    background: rgba(255, 255, 255, .25);
+  }
+
+  @include mappy-bp(sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.c-hire__link-icon {
+  width: 3em;
+  height: 3em;
+  margin: 0 auto;
+}
+
+.c-hire__link-text {
+  display: block;
+  margin-top: .4em;
+  font-size: 1.25em;
+  font-weight: $font-weight-bold;
+  display: none;
+
+  @include mappy-bp(md) {
+    display: block;
   }
 }
 

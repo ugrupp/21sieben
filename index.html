@@ -1,6 +1,20 @@
 ---
 layout: default
 title: 21sieben
+contactLinks:
+  - title: Xing
+    url: https://www.xing.com/profile/Urs_Grupp
+    icon: xing
+  - title: Codepen
+    url: https://www.codepen.io/21sieben
+    icon: codepen
+  - title: Github
+    url: https://github.com/ugrupp
+    icon: github
+  - title: E-Mail
+    url: mailto:urs@21sieben.de
+    icon: at
+
 ---
 
 <div class="splash">
@@ -39,89 +53,96 @@ title: 21sieben
   </div>
 </div>
 
-<div class="l-main__sections">
-  {% comment %} About section {% endcomment %}
-  <section class="l-main__section l-main__section--about l-main__section--inverted l-main__section--scrollhint" id="about">
-    <a href="#about" class="l-main__section-edge l-main__section-edge--scrollhint">▼ About</a>
-    <div class="l-main__section-content">
-      <article class="c-about">
-        <div class="l-container">
-          <h3 class="c-about__title c-headline c-headline--alpha">About</h3>
-          <div class="c-about__cols">
+{% comment %} About section {% endcomment %}
+<section class="l-main__section l-main__section--about l-main__section--inverted l-main__section--scrollhint" id="about">
+  <a href="#about" class="l-main__section-edge l-main__section-edge--scrollhint">▼ About</a>
+  <div class="l-main__section-content">
+    <article class="c-about">
+      <div class="l-container">
+        <h3 class="c-about__title c-headline c-headline--alpha">About</h3>
+        <div class="c-about__cols">
+          <div class="c-article c-article--lg">
+            <p><strong class="c-21sieben-inline">21sieben</strong> is a digital coding house run by <strong>Urs Grupp</strong>, an achieved web developer from Southern Germany.</p>
+            <p>Working in web development for almost 10 years, I was able to build and develop important soft skills. In dozens of web projects, I have proven to be dependable, reliable and able to provide high quality results under pressure.</p>
+            <p>Due to excellent communication skills and a high level of social competence, I was able to take up the position of Technical Director at Land in Sicht AG. There, I could gain experience in leadership and further development of employees, leading my team to great results by applying a cooperative management style. Acting as a link between the teams, I prove to be able to present complex technical facts in a simple way for non-technicians.</p>
+          </div>
+
+          <div class="c-about__portrait-wrapper">
+            <img class="c-about__portrait" src="https://i.pinimg.com/originals/0d/0b/bd/0d0bbd6482df127803c22813a5bb85fc.jpg" alt="Urs Grupp">
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+{% comment %} Skills section {% endcomment %}
+<section class="l-main__section l-main__section--skills" id="skills">
+  <a href="#skills" class="l-main__section-edge"></a>
+  <div class="l-main__section-content">
+    <article class="c-skills">
+      <div class="l-container">
+        <h3 class="c-skills__title c-headline c-headline--alpha c-headline--gradient">Skills</h3>
+
+        {% comment %} Loop through primary skills {% endcomment %}
+        <div class="c-skills__primary">
+          {% for skill in site.skills %}
+            {% if skill.primary %}
+              {% include skills/skill.html %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% comment %} Loop through non-primary skills {% endcomment %}
+        <div class="c-skills__secondary c-skills__masonry" data-masonry-grid>
+          {% comment %} Masonry columns {% endcomment %}
+          <div class="c-skills__masonry-col" data-masonry-col></div>
+          <div class="c-skills__masonry-col" data-masonry-col></div>
+
+          {% comment %} Masonry items {% endcomment %}
+          {% for skill in site.skills %}
+            {% unless skill.primary %}
+              {% include skills/skill.html %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+{% comment %} Contact section {% endcomment %}
+<section class="l-main__section l-main__section--hire l-main__section--inverted" id="contact">
+  <a href="#contact" class="l-main__section-edge"></a>
+  <div class="l-main__section-content">
+    <article class="c-hire">
+      <div class="l-container">
+        <h3 class="c-hire__title c-headline c-headline--alpha">Contact</h3>
+        <div class="c-hire__cols">
+          <div class="c-hire__content">
             <div class="c-article c-article--lg">
-              <p><strong class="c-21sieben-inline">21sieben</strong> is a digital coding house run by <strong>Urs Grupp</strong>, an achieved web developer from Southern Germany.</p>
-              <p>Working in web development for almost 10 years, I was able to build and develop important soft skills. In dozens of web projects, I have proven to be dependable, reliable and able to provide high quality results under pressure.</p>
-              <p>Due to excellent communication skills and a high level of social competence, I was able to take up the position of Technical Director at Land in Sicht AG. There, I could gain experience in leadership and further development of employees, leading my team to great results by applying a cooperative management style. Acting as a link between the teams, I prove to be able to present complex technical facts in a simple way for non-technicians.</p>
+              <p>I'm currently <strong>available for hire</strong>. I love to work on remote positions for web projects of any size.</p>
+              <p>If you're interested in working together or would like to learn more about me and my work, just drop me a line:</p>
             </div>
-
-            <div class="c-about__portrait-wrapper">
-              <img class="c-about__portrait" src="https://i.pinimg.com/originals/0d/0b/bd/0d0bbd6482df127803c22813a5bb85fc.jpg" alt="Urs Grupp">
+            <div class="c-hire__cta">
+              <a href="mailto:urs@21sieben.de" class="c-cta">urs@<span class="c-21sieben-inline">21sieben</span>.de</a>
             </div>
           </div>
-        </div>
-      </article>
-    </div>
-  </section>
 
-  {% comment %} Skills section {% endcomment %}
-  <section class="l-main__section l-main__section--skills" id="skills">
-    <a href="#skills" class="l-main__section-edge"></a>
-    <div class="l-main__section-content">
-      <article class="c-skills">
-        <div class="l-container">
-          <h3 class="c-skills__title c-headline c-headline--alpha c-headline--gradient">Skills</h3>
-
-          {% comment %} Loop through primary skills {% endcomment %}
-          <div class="c-skills__primary">
-            {% for skill in site.skills %}
-              {% if skill.primary %}
-                {% include skills/skill.html %}
-              {% endif %}
+          <ul class="c-hire__links">
+            {% for contactLink in page.contactLinks %}
+              <li class="c-hire__link-item">
+                <a class="c-hire__link" href="{{ contactLink.url }}">
+                  <div class="c-hire__link-icon">
+                    <svg class="o-icon o-icon--fitparent"><use xlink:href="/images/svg/sprite.svg#{{ contactLink.icon }}"></use></svg>
+                  </div>
+                  <span class="c-hire__link-text">{{ contactLink.title }}</span>
+                </a>
+              </li>
             {% endfor %}
-          </div>
-
-          {% comment %} Loop through non-primary skills {% endcomment %}
-          <div class="c-skills__secondary c-skills__masonry" data-masonry-grid>
-            {% comment %} Masonry columns {% endcomment %}
-            <div class="c-skills__masonry-col" data-masonry-col></div>
-            <div class="c-skills__masonry-col" data-masonry-col></div>
-
-            {% comment %} Masonry items {% endcomment %}
-            {% for skill in site.skills %}
-              {% unless skill.primary %}
-                {% include skills/skill.html %}
-              {% endunless %}
-            {% endfor %}
-          </div>
+          </ul>
         </div>
-      </article>
-    </div>
-  </section>
-
-  {% comment %} Contact section {% endcomment %}
-  <section class="l-main__section l-main__section--hire l-main__section--inverted" id="contact">
-    <a href="#contact" class="l-main__section-edge"></a>
-    <div class="l-main__section-content">
-      <article class="c-hire">
-        <div class="l-container">
-          <h3 class="c-hire__title c-headline c-headline--alpha">Contact</h3>
-          <div class="c-hire__cols">
-            <div class="c-hire__content">
-              <div class="c-article c-article--lg">
-                <p>I'm currently <strong>available for hire</strong>. I love to work on remote positions for web projects of any size.</p>
-                <p>If you're interested in working together or would like to learn more about me and my work, just drop me a line:</p>
-              </div>
-              <div class="c-hire__cta">
-                <a href="mailto:urs@21sieben.de" class="c-cta">urs@<span class="c-21sieben-inline">21sieben</span>.de</a>
-              </div>
-            </div>
-
-            <div class="c-hire__links">
-              Hire links
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-</div>
+      </div>
+    </article>
+  </div>
+</section>

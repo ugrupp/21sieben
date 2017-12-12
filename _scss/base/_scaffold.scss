@@ -2,7 +2,12 @@
 @include typi-init;
 
 body {
-    font-family: $font-family-base;
-    color: $color-text;
-    background-color: $color-bg;
+  font-family: $font-family-base;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+::selection {
+  background: $color-darkblue;
+  color: $color-white;
 }

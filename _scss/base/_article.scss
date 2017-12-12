@@ -67,7 +67,12 @@ h3 {
   .c-article & {
     @include typi("article");
   }
+
   .c-article--lg & {
     @include typi("article--lg");
+  }
+
+  .c-article--sm & {
+    @include typi("article--sm");
   }
 }

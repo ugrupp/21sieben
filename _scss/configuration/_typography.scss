@@ -25,6 +25,11 @@ $typi: (
     sm: (21px)
   ),
 
+  article--sm: (
+    null: (16px, 1.5),
+    sm: (18px),
+  ),
+
   article--lg: (
     null: (16px, 1.5),
     xs: (18px),
@@ -35,7 +40,6 @@ $typi: (
   headline--alpha: (
     null: (50px, 1.2),
     sm: (100px),
-    md: (120px),
     xl: (140px)
   ),
 

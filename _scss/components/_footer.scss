@@ -1,0 +1,33 @@
+.c-footer__cols {
+  display: block;
+
+  @include mappy-bp(md) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.c-footer__nav {
+  margin-bottom: 1em;
+
+  @include mappy-bp(md) {
+    margin-bottom: 0;
+    margin-left: 1em;
+    order: 1;
+  }
+
+  @include typi('article--sm');
+
+  ul {
+    display: flex;
+    margin: -.5em;
+  }
+
+  li {
+    margin: .5em;
+  }
+
+  a {
+    color: inherit;
+  }
+}

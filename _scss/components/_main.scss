@@ -35,7 +35,7 @@
   bottom: 100%;
   left: 0;
   right: 0;
-  z-index: index($z-index, section-edge);;
+  z-index: index($z-index, section-edge);
   transition: all .4s;
   visibility: hidden;
   transform: translateY(100%);
@@ -84,8 +84,22 @@
   }
 }
 
+.l-main__section--dark {
+  background-color: $color-section-bg-dark;
+  color: $color-white;
+  @include font-smoothing;
+
+  .l-main__section-edge {
+    background-color: $color-section-bg-dark;
+  }
+}
 
 .l-main__section-content {
   position: relative;
-  z-index: index($z-index, section);;
+  z-index: index($z-index, section);
+}
+
+.l-main__section--footer {
+  z-index: index($z-index, footer);
+  padding-bottom: 3em;
 }
