@@ -53,6 +53,7 @@
     "babel-polyfill": "^6.26.0",
     "blaze": "^3.6.1",
     "colcade": "^0.2.0",
+    "smooth-scroll": "^12.1.5",
     "svgxuse": "^1.2.6"
   },
   "browserslist": [
