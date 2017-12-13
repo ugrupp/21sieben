@@ -40,11 +40,20 @@ $typi: (
   headline--alpha: (
     null: (50px, 1.2),
     sm: (100px),
-    xl: (140px)
+    xl: (120px)
   ),
 
   headline--beta: (
     null: (24px, 1.2),
     sm: (36px)
-  )
+  ),
+
+  // Half of headline-alpha
+  splash: (
+    null: (25px, 1),
+    xs: (35px),
+    sm: (50px),
+    md: (60px),
+    xl: (65px)
+  ),
 );

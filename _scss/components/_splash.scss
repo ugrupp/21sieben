@@ -12,8 +12,25 @@ $bgColorPrimary: $color-section-bg-dark;
     position: relative;
     background-color: $bgColorPrimary;
     height: 100vh;
+    min-height: 20em;
     overflow: hidden;
     line-height: 1;
+
+    @include mappy-bp(xs) {
+      min-height: 26em;
+    }
+
+    @include mappy-bp(sm) {
+      min-height: 35em;
+    }
+
+    @include mappy-bp(md) {
+      min-height: 40em;
+    }
+
+    @include mappy-bp(xl) {
+      min-height: 42em;
+    }
   }
 
   .splash__bg-gradient {
@@ -68,18 +85,14 @@ $bgColorPrimary: $color-section-bg-dark;
 
   // Claim styles
   .claim {
-    font-size: 6vmin;
+    @include typi('splash');
+
     font-weight: $claim-font-weight;
     color: white;
-    -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    @include font-smoothing;
 
     // hide initially
     visibility: hidden;
-
-    @media (min-width: 55em) {
-      font-size: 8vmin;
-    }
   }
 
   .claim--triggered {
@@ -111,7 +124,11 @@ $bgColorPrimary: $color-section-bg-dark;
     transform-origin: top left;
 
     .claim__line--primary & {
-      font-size: 2em;
+      font-size: 1.7em;
+
+      @include mappy-bp(sm) {
+        font-size: 2em;
+      }
     }
   }
 
@@ -128,7 +145,6 @@ $bgColorPrimary: $color-section-bg-dark;
     position: absolute;
     background: $gradientFallback;
     background: $gradient;
-    //background: purple; // the gradient is too cool, man ...
     left: 0;
     right: 0;
     top: 0;
@@ -145,11 +161,6 @@ $bgColorPrimary: $color-section-bg-dark;
       width: 2em;
       height: auto;;
       display: block;
-      vertical-align: middle;
       border-radius: 50%;
-
-      @media (min-width: 40em) {
-        width: 1.5em;
-      }
     }
   }
