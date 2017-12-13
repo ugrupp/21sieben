@@ -25,6 +25,5 @@
 
 // Inline logo
 .c-21sieben-inline {
-  font-family: $font-family-ci;
-  font-weight: $font-weight-normal;
+  @include font-ci;
 }

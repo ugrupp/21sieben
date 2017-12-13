@@ -1,11 +1,11 @@
 @mixin font-smoothing {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @mixin no-font-smoothing {
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }
 
 @mixin gradient-text {
@@ -13,4 +13,14 @@
   background: $color-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@mixin font-ci {
+  font-weight: $font-weight-normal;
+  font-family: $font-family-ci-fallback;
+
+  // fonts-loaded body flag, triggered by JS (fontfaceobserver)
+  .has-loaded-fonts-ci & {
+    font-family: $font-family-ci;
+  }
 }

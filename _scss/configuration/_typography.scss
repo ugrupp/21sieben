@@ -1,13 +1,13 @@
 // Font Weights
-$font-weight-light: 300;
 $font-weight-normal: 400;
-$font-weight-semibold: 500;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 
 // Font Families
-$font-family-base: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
-$font-family-ci: 'Alfa Slab One', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-base-fallback: 'Arial', sans-serif;
+$font-family-base: 'Lato', sans-serif;
+$font-family-ci-fallback: 'Impact', 'Arial Black', sans-serif;
+$font-family-ci: 'Alfa Slab One', sans-serif;
 
 // Tell Typi to use mappy-breakpoints
 $typi-breakpoint: mappy-bp;

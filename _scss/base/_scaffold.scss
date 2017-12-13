@@ -6,9 +6,16 @@ html {
 }
 
 body {
-  font-family: $font-family-base;
-  color: $color-text;
-  background-color: $color-bg;
+  color: $color-white;
+  background-color: $color-section-bg-dark;
+
+  // fallback font for initial render to avoid FOIT
+  font-family: $font-family-base-fallback;
+
+  // fonts-loaded flag, triggered by JS (fontfaceobserver)
+  &.has-loaded-fonts-body {
+    font-family: $font-family-base;
+  }
 }
 
 ::selection {

@@ -86,12 +86,10 @@
     display: block;
     text-decoration: none;
 
-    font-family: $font-family-ci;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: normal;
+    @include font-ci;
     font-size: 2em;
+    color: white;
+    @include font-smoothing;
 
     visibility: hidden;
   }

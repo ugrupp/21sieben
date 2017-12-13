@@ -109,6 +109,7 @@ claimTimeline.add({
 // Logo animation
 // get elements
 let logoEl = document.querySelector('.logo');
+let splashEl = document.querySelector('.splash');
 let splashBgEl = document.querySelector('.splash__bg-gradient');
 
 let splashDurationIn = 1000;
@@ -122,6 +123,7 @@ let logoTimeline = anime.timeline({
   autoplay: false,
 }).add({
   begin() {
+    splashEl.classList.add('splash--triggered');
     logoEl.classList.add('logo--triggered');
   },
 }).add({
@@ -165,5 +167,8 @@ let logoTimeline = anime.timeline({
   offset: splashDurationIn + logoDurationIn + logoHoldIn,
 });
 
-// play logo timeline
-logoTimeline.play();
+// play logo timeline once CI font has loaded or timed out
+document.addEventListener('font-ci-loaded', logoTimeline.play, false);
+document.addEventListener('font-ci-timed-out', logoTimeline.play, false);
+
+
