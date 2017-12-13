@@ -54,9 +54,11 @@
     height: 6em;
   }
 
-  // show edge if animation has finished or user has scrolled
+  // show edge if animation has finished or user has scrolled.
+  // always show edge on all sections but the first one
   .is-splash-finished &,
-  .has-scrolled & {
+  .has-scrolled &,
+  .l-main__section ~ .l-main__section & {
     visibility: visible;
     transform: none;
   }
