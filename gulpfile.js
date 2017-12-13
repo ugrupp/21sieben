@@ -55,11 +55,13 @@ config.dest = '_site/';
 config.destJS = config.dest + 'js';
 config.destCSS = config.dest + 'css';
 config.destSVG = config.dest + 'images/svg';
+config.destIMG = config.dest + 'images/layout';
 
 // destination directories (root)
 config.destJSRoot = 'js';
 config.destCSSRoot = 'css';
 config.destSVGRoot = 'images/svg';
+config.destIMGRoot = 'images/layout';
 
 // entry files
 config.entries = {
@@ -72,6 +74,7 @@ config.globs = {
   scss: '_scss/**/*.scss',
   js: '_js/**/*.js',
   svg: '_images/svg/*.svg',
+  img: '_images/layout/**/*',
   jekyll: ['_config.yml', '*.html', '_layouts/*.html', '_posts/*', '_includes/**/*', '_skills/*',]
 };
 
@@ -290,6 +293,24 @@ gulp.task('svg-rebuild', ['svg'], function() {
   browserSync.reload();
 });
 
+// IMG TASK: Simply copy images
+// ==============================
+gulp.task('img', function() {
+  return gulp.src(config.globs.img)
+    .pipe($.plumber({
+      errorHandler: plumberErrorHandler
+    }))
+    .pipe(gulp.dest(config.destIMG))
+    .pipe(gulp.dest(config.destIMGRoot));
+});
+
+/**
+ * Rebuild images & do page reload
+ */
+gulp.task('img-rebuild', ['img'], function() {
+  browserSync.reload();
+});
+
 
 // WATCH TASK: Watch files for changes
 // ==============================
@@ -317,6 +338,12 @@ gulp.task('watch', function() {
     $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
     gulp.start('jekyll-rebuild');
   });
+
+  // watch all image files, recopy images
+  $.watch(config.globs.img, function(vinyl) {
+    $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
+    gulp.start('img-rebuild');
+  });
 });
 
 
@@ -324,7 +351,7 @@ gulp.task('watch', function() {
 // ==============================
 gulp.task('default', callback =>
   runSequence(
-    ['sass', 'scripts', 'svg', 'jekyll-build'],
+    ['sass', 'scripts', 'svg', 'img', 'jekyll-build'],
     'browser-sync',
     'watch',
     callback
@@ -336,7 +363,7 @@ gulp.task('default', callback =>
 // ==============================
 gulp.task('production', callback =>
   runSequence(
-    ['sass', 'scripts', 'svg', 'jekyll-build'],
+    ['sass', 'scripts', 'svg', 'img', 'jekyll-build'],
     callback
   )
 );
