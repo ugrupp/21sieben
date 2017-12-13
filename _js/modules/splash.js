@@ -7,8 +7,8 @@ let menuEl = document.querySelector('.menu');
 let heidiEl = document.querySelector('.heidi');
 
 // Preparation: wrap every letter in a span
-Array.from(claimEl.querySelectorAll('.claim__text')).forEach(el => {
-  el.innerHTML = el.innerHTML.replace(/([^\s])/g, "<span class='claim__letter'>$&</span>");
+Array.from(claimEl.querySelectorAll('.claim__text')).forEach((el) => {
+  el.innerHTML = el.innerHTML.replace(/([^\s])/g, '<span class="claim__letter">$&</span>');
 });
 
 // animation durations
@@ -22,11 +22,11 @@ const easingBg = 'Sine';
 
 // init claim timeline
 let claimTimeline = anime.timeline({
-  autoplay: false
+  autoplay: false,
 }).add({
   begin() {
-    claimEl.classList.add('claim--triggered')
-  }
+    claimEl.classList.add('claim--triggered');
+  },
 });
 
 // loop through lines, adding them to the animation timeline
@@ -41,34 +41,34 @@ Array.from(document.querySelectorAll('.claim__line')).forEach((el, idx) => {
     rotateY: [-90, 0],
     duration: animDurationLetters,
     delay: (el, i, l) => (i + 4) * animDelayLetters,
-    offset: lineDuration * idx
+    offset: lineDuration * idx,
   }).add({
     targets: bg,
     scaleX: [0, 1],
     transformOrigin: ['0 0 0', '0 0 0'],
     easing: `easeIn${easingBg}`,
     duration: animDurationBg,
-    offset: lineDuration * idx
+    offset: lineDuration * idx,
   }).add({
     targets: bg,
     scaleX: 0,
     transformOrigin: ['100% 0 0', '100% 0 0'],
     easing: `easeOut${easingBg}`,
     duration: animDurationBg,
-    offset: animDurationBg * (idx + 1)
+    offset: animDurationBg * (idx + 1),
   }).add({
     targets: dot,
     translateY: ['-50%', 0],
     opacity: [0, 1],
     duration: animDurationDot,
-    offset: animDurationBg * (idx + 2)
+    offset: animDurationBg * (idx + 2),
   }).add({
     targets: avatar,
     translateY: [0, '-30%'],
     rotate: [-30, 0],
     opacity: [0, 1],
     duration: animDurationDot,
-    offset: animDurationBg * (idx + 2)
+    offset: animDurationBg * (idx + 2),
   });
 });
 
@@ -80,8 +80,8 @@ claimTimeline.add({
   easing: 'easeOutCubic',
   duration: animDurationMenu,
   begin() {
-    heidiEl.classList.add('heidi--visible')
-  }
+    heidiEl.classList.add('heidi--visible');
+  },
 });
 
 // fade in menu
@@ -92,7 +92,7 @@ claimTimeline.add({
   easing: 'easeOutCubic',
   duration: animDurationMenu,
   begin() {
-    menuEl.classList.add('menu--visible')
+    menuEl.classList.add('menu--visible');
   },
 });
 
@@ -102,7 +102,7 @@ claimTimeline.add({
   duration: 1,
   complete() {
     document.body.classList.add('is-splash-finished');
-  }
+  },
 });
 
 
@@ -119,11 +119,11 @@ let logoDurationOut = 800;
 
 // init logo timeline
 let logoTimeline = anime.timeline({
-  autoplay: false
+  autoplay: false,
 }).add({
   begin() {
     logoEl.classList.add('logo--triggered');
-  }
+  },
 }).add({
   targets: splashBgEl,
   opacity: [0, 1],
@@ -156,7 +156,7 @@ let logoTimeline = anime.timeline({
   complete() {
     // chain logo and claim timelines
     claimTimeline.restart();
-  }
+  },
 }).add({
   targets: splashBgEl,
   opacity: 0,
@@ -167,12 +167,3 @@ let logoTimeline = anime.timeline({
 
 // play logo timeline
 logoTimeline.play();
-
-function restartAnimation() {
-  // reset claim timeline
-  claimTimeline.pause();
-  claimTimeline.seek(0);
-
-  // restart logo timeline
-  logoTimeline.restart();
-}

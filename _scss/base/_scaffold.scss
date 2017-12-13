@@ -1,6 +1,10 @@
 // sets base font-sizing on html element
 @include typi-init;
 
+html {
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: $font-family-base;
   color: $color-text;

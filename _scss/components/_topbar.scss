@@ -1,7 +1,7 @@
 // Topbar
 .topbar {
     position: absolute;
-    z-index: index($z-index, topbar);;
+    z-index: index($z-index, topbar);
     left: 0;
     right: 0;
     top: 0;
@@ -67,12 +67,14 @@
       transition: opacity .1s;
     }
 
-    &:hover,
-    &:focus {
-      outline: none;
+    @include mappy-bp(md) {
+      &:hover,
+      &:focus {
+        outline: none;
 
-      &::before {
-        opacity: 1;
+        &::before {
+          opacity: 1;
+        }
       }
     }
   }
