@@ -2,22 +2,14 @@
   a {
     color: $color-text-inverted;
     position: relative;
+    transition: all $transition-time-default;
+    border-radius: .001em;
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 100%;
-      height: 3px;
-      background: $color-gradient;
-      transition: all $transition-time-default;
-      transform: scaleY(0);
-      transform-origin: bottom;
-    }
+    &:hover {
+      background: rgba(0, 0, 0, .1);
+      box-shadow: 0 0 0 .2em rgba(0, 0, 0, .1);
+      color: $color-text;
 
-    &:hover::before {
-      transform: scaleY(1);
     }
   }
 
