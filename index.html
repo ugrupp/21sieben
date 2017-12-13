@@ -65,9 +65,8 @@ contactLinks:
         <h3 class="c-about__title c-headline c-headline--alpha">About</h3>
         <div class="c-about__cols">
           <div class="c-article c-article--lg">
-            <p><strong class="c-21sieben-inline">21sieben</strong> is a digital coding house run by <strong>Urs Grupp</strong>, an achieved web developer from Southern Germany.</p>
-            <p>Working in web development for almost 10 years, I was able to build and develop important soft skills. In dozens of web projects, I have proven to be dependable, reliable and able to provide high quality results under pressure.</p>
-            <p>Due to excellent communication skills and a high level of social competence, I was able to take up the position of Technical Director at Land in Sicht AG. There, I could gain experience in leadership and further development of employees, leading my team to great results by applying a cooperative management style. Acting as a link between the teams, I prove to be able to present complex technical facts in a simple way for non-technicians.</p>
+            {% capture about %}{% include about.md %}{% endcapture %}
+            {{ about | markdownify }}
           </div>
 
           <div class="c-about__portrait-wrapper">
@@ -124,9 +123,10 @@ contactLinks:
         <div class="c-hire__cols">
           <div class="c-hire__content">
             <div class="c-article c-article--lg">
-              <p>I'm currently <strong>available for hire</strong>. I love to work on remote positions for web projects of any size.</p>
-              <p>If you're interested in working together or would like to learn more about me and my work, just drop me a line:</p>
+              {% capture contact %}{% include contact.md %}{% endcapture %}
+              {{ contact | markdownify }}
             </div>
+
             <div class="c-hire__cta">
               <a href="mailto:urs@21sieben.de" class="c-cta">urs@<span class="c-21sieben-inline">21sieben</span>.de</a>
             </div>
