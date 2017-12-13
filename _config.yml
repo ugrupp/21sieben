@@ -15,5 +15,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
 collections:
-  skills:
-    output: true
+  - skills
