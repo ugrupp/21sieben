@@ -13,12 +13,12 @@ $container-padding-sm: 32px;
 .l-container {
   padding-left: $container-padding;
   padding-right: $container-padding;
-  @include notchfoo;
+  @include notchfoo($container-padding);
 
   @include mappy-bp(sm) {
     padding-left: $container-padding-sm;
     padding-right: $container-padding-sm;
-    @include notchfoo;
+    @include notchfoo($container-padding-sm);
 
     max-width: $container-width + $container-padding-sm * 2;
     margin-left: auto;
