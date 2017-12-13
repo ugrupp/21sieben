@@ -11,39 +11,41 @@ $container-padding: 20px;
 $container-padding-sm: 32px;
 
 .l-container {
-    padding-left: $container-padding;
-    padding-right: $container-padding;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+  @include notchfoo;
 
-    @include mappy-bp(sm) {
-        padding-left: $container-padding-sm;
-        padding-right: $container-padding-sm;
+  @include mappy-bp(sm) {
+    padding-left: $container-padding-sm;
+    padding-right: $container-padding-sm;
+    @include notchfoo;
 
-        max-width: $container-width + ($container-padding-sm * 2);
-        margin-left: auto;
-        margin-right: auto;
-    }
+    max-width: $container-width + $container-padding-sm * 2;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .l-container--md {
-    @include mappy-bp(sm) {
-        max-width: $container-width--md + ($container-padding-sm * 2);
-    }
+  @include mappy-bp(sm) {
+    max-width: $container-width--md + $container-padding-sm * 2;
+  }
 }
 
 .l-container--sm {
-    @include mappy-bp(sm) {
-        max-width: $container-width--sm + ($container-padding-sm * 2);
-    }
+  @include mappy-bp(sm) {
+    max-width: $container-width--sm + $container-padding-sm * 2;
+  }
 }
 
 .l-container--xs {
-    @include mappy-bp(sm) {
-        max-width: $container-width--xs + ($container-padding-sm * 2);
-    }
+  @include mappy-bp(sm) {
+    max-width: $container-width--xs + $container-padding-sm * 2;
+  }
 }
 
 .l-container--xxs {
-    @include mappy-bp(sm) {
-        max-width: $container-width--xxs + ($container-padding-sm * 2);
-    }
+  @include mappy-bp(sm) {
+    max-width: $container-width--xxs + $container-padding-sm * 2;
+  }
 }
