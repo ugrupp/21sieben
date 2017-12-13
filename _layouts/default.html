@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -11,13 +11,17 @@
     <link rel="stylesheet" href="/css/main.min.css">
   </head>
   <body>
+    {% comment %} Accessibility links {% endcomment %}
+    <a href="#content-main" class="u-invisible">Jump to Content</a>
+    <a href="#nav-main" class="u-invisible">Jump to Navigation</a>
+
     {% comment %} Topbar {% endcomment %}
     <div class="topbar">
       <a href="/" class="heidi">
         <span class="heidi__21">21</span><span class="heidi__7"><span class="heidi__7-text">sieben</span></span>
       </a>
 
-      <nav class="menu">
+      <nav class="menu" id="nav-main">
         <ul class="menu__list">
           <li class="menu__item">
             <a href="/#about" class="menu__link">About</a>
@@ -32,7 +36,7 @@
       </nav>
     </div>
 
-    <main class="l-main">
+    <main class="l-main" id="content-main">
       {% comment %} Content {% endcomment %}
       {{ content }}
 

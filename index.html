@@ -17,7 +17,7 @@ contactLinks:
 
 ---
 
-<div class="splash">
+<header class="splash">
   <div class="splash__loader">
     loading &hellip;
   </div>
@@ -54,13 +54,13 @@ contactLinks:
       </span>
     </h2>
   </div>
-</div>
+</header>
 
 {% comment %} About section {% endcomment %}
 <section class="l-main__section l-main__section--about l-main__section--inverted l-main__section--scrollhint" id="about">
   <a href="#about" class="l-main__section-edge l-main__section-edge--scrollhint">▼ About</a>
   <div class="l-main__section-content">
-    <article class="c-about">
+    <div class="c-about">
       <div class="l-container">
         <h3 class="c-about__title c-headline c-headline--alpha">About</h3>
         <div class="c-about__cols">
@@ -75,7 +75,7 @@ contactLinks:
           </div>
         </div>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
@@ -83,7 +83,7 @@ contactLinks:
 <section class="l-main__section l-main__section--skills" id="skills">
   <a href="#skills" class="l-main__section-edge"></a>
   <div class="l-main__section-content">
-    <article class="c-skills">
+    <div class="c-skills">
       <div class="l-container">
         <h3 class="c-skills__title c-headline c-headline--alpha c-headline--gradient">Skills</h3>
 
@@ -110,7 +110,7 @@ contactLinks:
           {% endfor %}
         </div>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
@@ -118,7 +118,7 @@ contactLinks:
 <section class="l-main__section l-main__section--hire l-main__section--inverted" id="contact">
   <a href="#contact" class="l-main__section-edge"></a>
   <div class="l-main__section-content">
-    <article class="c-hire">
+    <div class="c-hire">
       <div class="l-container">
         <h3 class="c-hire__title c-headline c-headline--alpha">Contact</h3>
         <div class="c-hire__cols">
@@ -132,20 +132,22 @@ contactLinks:
             </div>
           </div>
 
-          <ul class="c-hire__links">
-            {% for contactLink in page.contactLinks %}
-              <li class="c-hire__link-item">
-                <a class="c-hire__link" href="{{ contactLink.url }}">
-                  <div class="c-hire__link-icon">
-                    <svg class="o-icon o-icon--fitparent"><use xlink:href="/images/svg/sprite.svg#{{ contactLink.icon }}"></use></svg>
-                  </div>
-                  <span class="c-hire__link-text">{{ contactLink.title }}</span>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
+          <aside class="c-hire__links">
+            <ul class="c-hire__links-list">
+              {% for contactLink in page.contactLinks %}
+                <li class="c-hire__link-item">
+                  <a class="c-hire__link" href="{{ contactLink.url }}">
+                    <div class="c-hire__link-icon">
+                      <svg class="o-icon o-icon--fitparent"><use xlink:href="/images/svg/sprite.svg#{{ contactLink.icon }}"></use></svg>
+                    </div>
+                    <span class="c-hire__link-text">{{ contactLink.title }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </aside>
         </div>
       </div>
-    </article>
+    </div>
   </div>
 </section>
