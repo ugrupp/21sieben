@@ -64,13 +64,13 @@ contactLinks:
       <div class="l-container">
         <h3 class="c-about__title c-headline c-headline--alpha">About</h3>
         <div class="c-about__cols">
-          <div class="c-article c-article--lg">
+          <div class="c-article c-article--lg" data-reveal>
             {% capture about %}{% include about.md %}{% endcapture %}
             {{ about | markdownify }}
           </div>
 
           <div class="c-about__portrait-wrapper">
-            <img class="c-about__portrait" src="https://i.pinimg.com/originals/0d/0b/bd/0d0bbd6482df127803c22813a5bb85fc.jpg" alt="Urs Grupp">
+            <img class="c-about__portrait" src="https://i.pinimg.com/originals/0d/0b/bd/0d0bbd6482df127803c22813a5bb85fc.jpg" alt="Urs Grupp" data-reveal>
           </div>
         </div>
       </div>
@@ -122,17 +122,17 @@ contactLinks:
         <h3 class="c-hire__title c-headline c-headline--alpha">Contact</h3>
         <div class="c-hire__cols">
           <div class="c-hire__content">
-            <div class="c-article c-article--lg">
+            <div class="c-article c-article--lg" data-reveal>
               {% capture contact %}{% include contact.md %}{% endcapture %}
               {{ contact | markdownify }}
             </div>
 
-            <div class="c-hire__cta">
+            <div class="c-hire__cta" data-reveal>
               <a href="mailto:urs@21sieben.de" class="c-cta">urs@<span class="c-21sieben-inline">21sieben</span>.de</a>
             </div>
           </div>
 
-          <aside class="c-hire__links">
+          <aside class="c-hire__links" data-reveal>
             <ul class="c-hire__links-list">
               {% for contactLink in page.contactLinks %}
                 <li class="c-hire__link-item">

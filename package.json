@@ -53,6 +53,7 @@
     "babel-polyfill": "^6.26.0",
     "colcade": "^0.2.0",
     "fontfaceobserver": "^2.0.13",
+    "scrollreveal": "^3.3.6",
     "smooth-scroll": "^12.1.5",
     "svgxuse": "^1.2.6"
   },
