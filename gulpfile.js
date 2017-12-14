@@ -23,6 +23,7 @@ var browserify = require('browserify');
 var envify = require('envify');
 var babelify = require('babelify');
 var buffer = require('vinyl-buffer');
+var critical = require('critical');
 
 
 // Setup & Configuration
@@ -343,6 +344,28 @@ gulp.task('watch', function() {
   $.watch(config.globs.img, function(vinyl) {
     $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
     gulp.start('img-rebuild');
+  });
+});
+
+
+// CRITICAL TASK: Build critical CSS
+// ==============================
+gulp.task('critical', function () {
+  critical.generate({
+    inline: true,
+    dest: '_site/index_critical.html',
+    src: 'http://cv.21sieben.de',
+    minify: true,
+    dimensions: [
+      {
+        width: 320,
+        height: 480,
+      },
+      {
+        width: 1200,
+        height: 900,
+      }
+    ]
   });
 });
 
