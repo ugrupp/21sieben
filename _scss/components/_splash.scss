@@ -178,9 +178,13 @@ $bgColorPrimary: $color-section-bg-dark;
   display: block;
 
   img {
-    width: 2em;
+    width: 2.5em;
     height: auto;;
     display: block;
     border-radius: 50%;
+
+    @include mappy-bp(sm) {
+      width: 2em;
+    }
   }
 }

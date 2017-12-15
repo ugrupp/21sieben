@@ -58,7 +58,8 @@
 p,
 ul,
 ol,
-h3 {
+h3,
+table {
   .c-article & {
     @include typi("article");
   }

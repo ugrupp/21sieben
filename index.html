@@ -16,6 +16,24 @@ contactLinks:
     url: mailto:urs@21sieben.de
     icon: at
 
+career:
+- agency: 21sieben
+  position: Freelance frontend engineer
+  time: since 2017
+  21sieben: true
+- agency: Land in Sicht AG
+  position: Technical Director Frontend/CMS
+  time: 2016 - 2017
+- agency: Land in Sicht AG
+  position: Web Developer
+  time: 2015 - 2016
+- agency: Urs Grupp Webentwicklung
+  position: Freelance web developer
+  time: 2013 - 2017
+- agency: hanfweihnacht Communication GbR
+  position: Web Developer
+  time: 2008 - 2013
+
 ---
 
 <header class="splash">
@@ -73,6 +91,29 @@ contactLinks:
           <div class="c-about__portrait-wrapper">
             <img class="c-about__portrait" src="/images/layout/ugrupp2_368.jpg" srcset="/images/layout/ugrupp2_368.jpg 1x, /images/layout/ugrupp2_606.jpg 2x" alt="Urs Grupp" data-reveal />
           </div>
+        </div>
+
+        <div class="c-about__cv" data-reveal>
+          <h4 class="c-about__cv-title c-headline c-headline--beta">Working experience</h4>
+          <table class="c-about__cv-table">
+            {% for step in page.career %}
+              <tr class="c-about__cv-tr">
+                <td class="c-about__cv-td c-about__cv-td--time">
+                  <div class="c-about__cv-time">{{ step.time }}</div>
+                </td>
+                <td class="c-about__cv-td">
+                  <strong class="c-about__cv-position">{{ step.position }}</strong>
+                  <div class="c-about__cv-agency">
+                    {% if step.21sieben %}
+                      <span class="c-21sieben-inline">{{ step.agency }}</span>
+                    {% else %}
+                      {{ step.agency }}
+                    {% endif %}
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
         </div>
       </div>
     </div>
