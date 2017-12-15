@@ -1,6 +1,18 @@
 ---
 title: DevOps
 primary: false
+tags:
+- Linux
+- Apache
+- MySQL
+- PHP
+- nginx
+- SSL
+- DNS-/Domain-Management
+- Solr
+- Continuous integration
+- Varnish
+- Docker
 ---
 
-Production experience (selection): LAMP-Stack (Linux, Apache, MySQL, PHP), nginx, Caching (Varnish), Apache Solr, Docker, SSL, DNS-/Domain-Management, Continuous integration
+Production experience (selection):
