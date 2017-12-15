@@ -4,4 +4,4 @@ In 2017, I launched **21sieben**{:.c-21sieben-inline}, a digital coding house wh
 
 As a graduated computer scientist, I also have a fundamental understanding of backend structures, which allowed me to expand my skill set to **JS app development** and **CMS integration**.
 
-When I'm not coding I like making full use of the black forest, going sailing or snowboarding. Occasionally, you can find me in concert halls with my orchestra, playing the violin.
+When I'm not coding I like making full use of the black forest, going sailing or snowboarding. Occasionally, you can find me in a concert hall with my orchestra, playing the violin.
