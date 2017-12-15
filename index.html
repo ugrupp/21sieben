@@ -20,7 +20,7 @@ career:
 - agency: 21sieben
   position: Freelance frontend engineer
   time: since 2017
-  21sieben: true
+  is21sieben: true
 - agency: Land in Sicht AG
   position: Technical Director Frontend/CMS
   time: 2016 - 2017
@@ -104,7 +104,7 @@ career:
                 <td class="c-about__cv-td">
                   <strong class="c-about__cv-position">{{ step.position }}</strong>
                   <div class="c-about__cv-agency">
-                    {% if step.21sieben %}
+                    {% if step.is21sieben %}
                       <span class="c-21sieben-inline">{{ step.agency }}</span>
                     {% else %}
                       {{ step.agency }}
