@@ -1,7 +1,9 @@
 import Colcade from 'colcade';
 
-// selector string as first argument
-new Colcade('[data-masonry-grid]', {
-  columns: '[data-masonry-col]',
-  items: '[data-masonry-item]',
-});
+var masonry = document.querySelector('[data-masonry-grid]');
+if (masonry) {
+  new Colcade(masonry, {
+    columns: '[data-masonry-col]',
+    items: '[data-masonry-item]',
+  });
+}

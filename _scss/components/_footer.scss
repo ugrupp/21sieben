@@ -20,11 +20,12 @@
 
   ul {
     display: flex;
-    margin: -.5em;
+    flex-wrap: wrap;
+    margin: -.25em -.5em;
   }
 
   li {
-    margin: .5em;
+    margin: .25em .5em;
   }
 
   a {

@@ -9,7 +9,6 @@
       background: rgba(0, 0, 0, .1);
       box-shadow: 0 0 0 .2em rgba(0, 0, 0, .1);
       color: $color-text;
-
     }
   }
 
@@ -39,6 +38,10 @@
   h2,
   h3 {
     font-weight: $font-weight-bold;
+  }
+
+  h2 {
+    @extend .c-headline--gamma;
   }
 
   // spacing for everyone! (but a few exceptions)

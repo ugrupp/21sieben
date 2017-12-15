@@ -15,12 +15,12 @@
 @import 'base/reset';
 @import 'base/scaffold';
 @import 'base/layout';
-@import 'base/article';
 
 // Components
+@import 'components/typo';
+@import 'components/article';
 @import 'components/main';
 @import 'components/icons';
-@import 'components/typo';
 @import 'components/splash';
 @import 'components/topbar';
 @import 'components/about';
@@ -28,3 +28,4 @@
 @import 'components/hire';
 @import 'components/cta';
 @import 'components/footer';
+@import 'components/imprint';

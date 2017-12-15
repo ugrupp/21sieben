@@ -1,6 +1,10 @@
+.l-main--padded {
+  padding-top: 13em;
+}
+
 .l-main__section {
   background-color: $color-section-bg;
-  color: $color-white;
+  color: $color-text;
   @include font-smoothing;
 
   padding: 1em 0 8em;
@@ -58,7 +62,8 @@
   // always show edge on all sections but the first one
   .is-splash-finished &,
   .has-scrolled &,
-  .l-main__section ~ .l-main__section & {
+  .l-main__section ~ .l-main__section &,
+  .no-splash & {
     visibility: visible;
     transform: none;
   }

@@ -28,18 +28,18 @@
     <meta name="application-name" content="21sieben">
     <meta name="theme-color" content="#eceff0">
   </head>
-  <body>
+  <body class="{%unless page.splash %} no-splash{% endunless %}">
     {% comment %} Accessibility links {% endcomment %}
     <a href="#content-main" class="u-invisible">Jump to Content</a>
     <a href="#nav-main" class="u-invisible">Jump to Navigation</a>
 
     {% comment %} Topbar {% endcomment %}
     <div class="topbar">
-      <a href="/" class="heidi">
+      <a href="/" class="heidi{%unless page.splash %} heidi--visible{% endunless %}">
         <span class="heidi__21">21</span><span class="heidi__7"><span class="heidi__7-text">sieben</span></span>
       </a>
 
-      <nav class="menu" id="nav-main">
+      <nav class="menu{%unless page.splash %} menu--visible{% endunless %}" id="nav-main">
         <ul class="menu__list">
           <li class="menu__item">
             <a href="/#profile" class="menu__link">Profile</a>
@@ -54,7 +54,7 @@
       </nav>
     </div>
 
-    <main class="l-main" id="content-main">
+    <main class="l-main{%unless page.splash %} l-main--padded{% endunless %}" id="content-main">
       {% comment %} Content {% endcomment %}
       {{ content }}
 
@@ -78,6 +78,9 @@
                     </li>
                     <li>
                       <a href="/imprint.html">Imprint</a>
+                    </li>
+                    <li>
+                      <a href="/privacy.html">Privacy policy</a>
                     </li>
                   </ul>
                 </nav>

@@ -353,8 +353,8 @@ gulp.task('watch', function() {
 gulp.task('critical', function () {
   critical.generate({
     inline: true,
-    dest: '_site/index.html',
-    src: 'http://cv.21sieben.de',
+    dest: 'critical/',
+    src: 'http://' + config.proxyDomain,
     minify: true,
     dimensions: [
       {
