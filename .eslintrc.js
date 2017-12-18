@@ -19,7 +19,8 @@ module.exports = {
     strict: [2, 'global'],
     'dot-notation': 2,
     'space-infix-ops': 2,
-    'max-len': [2, 220]
+    'max-len': [2, 220],
+    'require-jsdoc': 0
   },
   globals: {
     process: true

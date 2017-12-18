@@ -175,7 +175,7 @@ gulp.task('sass', function() {
     .pipe($.plumber({
       errorHandler: plumberErrorHandler
     }))
-    .pipe($.sourcemaps.init())
+    .pipe($.if(env === 'development', $.sourcemaps.init()))
     .pipe($.postcss(postCSSPreProcessors, {
       syntax: postCssSyntaxScss
     }))
@@ -191,7 +191,7 @@ gulp.task('sass', function() {
     .pipe($.size({
       showFiles: true
     }))
-    .pipe($.sourcemaps.write('./'))
+    .pipe($.if(env === 'development', $.sourcemaps.write('./')))
     .pipe(gulp.dest(config.destCSS))
     .pipe(gulp.dest(config.destCSSRoot))
     .pipe(browserSync.reload({
@@ -237,14 +237,14 @@ gulp.task('scripts', ['eslint'], function() {
     .pipe($.rename({
       suffix: '.min'
     }))
-    .pipe($.sourcemaps.init({
+    .pipe($.if(env === 'development', $.sourcemaps.init({
       loadMaps: true
-    }))
+    })))
     .pipe($.uglify())
     .pipe($.size({
       showFiles: true
     }))
-    .pipe($.sourcemaps.write('./'))
+    .pipe($.if(env === 'development', $.sourcemaps.write('./')))
     .pipe(gulp.dest(config.destJS))
     .pipe(gulp.dest(config.destJSRoot))
     .pipe(browserSync.reload({
