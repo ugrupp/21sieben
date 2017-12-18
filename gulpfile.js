@@ -33,7 +33,7 @@ var critical = require('critical');
 dotenv.config();
 
 // NODE_ENV, should default to development
-var env = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // get jekyll comand
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
@@ -78,6 +78,17 @@ config.globs = {
   img: '_images/layout/**/*',
   jekyll: ['_config.yml', '*.html', '_layouts/*.html', '_posts/*', '_includes/**/*', '_skills/*',]
 };
+
+
+// Environment handling tasks
+// ==============================
+gulp.task('set-dev-node-env', function() {
+  return process.env.NODE_ENV = 'development';
+});
+
+gulp.task('set-prod-node-env', function() {
+  return process.env.NODE_ENV = 'production';
+});
 
 
 // Notification icons
@@ -175,7 +186,7 @@ gulp.task('sass', function() {
     .pipe($.plumber({
       errorHandler: plumberErrorHandler
     }))
-    .pipe($.if(env === 'development', $.sourcemaps.init()))
+    .pipe($.if(process.env.NODE_ENV === 'development', $.sourcemaps.init()))
     .pipe($.postcss(postCSSPreProcessors, {
       syntax: postCssSyntaxScss
     }))
@@ -191,7 +202,7 @@ gulp.task('sass', function() {
     .pipe($.size({
       showFiles: true
     }))
-    .pipe($.if(env === 'development', $.sourcemaps.write('./')))
+    .pipe($.if(process.env.NODE_ENV === 'development', $.sourcemaps.write('./')))
     .pipe(gulp.dest(config.destCSS))
     .pipe(gulp.dest(config.destCSSRoot))
     .pipe(browserSync.reload({
@@ -212,7 +223,7 @@ gulp.task('sass', function() {
 
 gulp.task('scripts', ['eslint'], function() {
   // log NODE_ENV
-  $.util.log('Building scripts with NODE_ENV:', env);
+  $.util.log('Building scripts with NODE_ENV:', process.env.NODE_ENV);
 
   return gulp.src(config.entries.js, {
       read: false
@@ -224,7 +235,7 @@ gulp.task('scripts', ['eslint'], function() {
       // browserify inside gulp-tap, so plumbering still works.
       file.contents = browserify({
           entries: [file.path],
-          debug: env === 'development'
+          debug: process.env.NODE_ENV === 'development'
         })
         .transform(envify, {
           _: 'purge',
@@ -237,14 +248,14 @@ gulp.task('scripts', ['eslint'], function() {
     .pipe($.rename({
       suffix: '.min'
     }))
-    .pipe($.if(env === 'development', $.sourcemaps.init({
+    .pipe($.if(process.env.NODE_ENV === 'development', $.sourcemaps.init({
       loadMaps: true
     })))
     .pipe($.uglify())
     .pipe($.size({
       showFiles: true
     }))
-    .pipe($.if(env === 'development', $.sourcemaps.write('./')))
+    .pipe($.if(process.env.NODE_ENV === 'development', $.sourcemaps.write('./')))
     .pipe(gulp.dest(config.destJS))
     .pipe(gulp.dest(config.destJSRoot))
     .pipe(browserSync.reload({
@@ -382,11 +393,11 @@ gulp.task('default', callback =>
 );
 
 
-// PRODUCTION TASK: Just build files
+// PRODUCTION TASK: Set NODE_ENV to production and build files
 // ==============================
 gulp.task('production', callback =>
   runSequence(
-    ['sass', 'scripts', 'svg', 'img', 'jekyll-build'],
+    ['set-prod-node-env', 'sass', 'scripts', 'svg', 'img', 'jekyll-build'],
     callback
   )
 );
