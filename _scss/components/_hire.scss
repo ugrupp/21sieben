@@ -14,7 +14,6 @@
     margin-top: 0;
     margin-left: 3em;
     min-width: 15em;
-    transform: translateY(-15%);
   }
 
   @include mappy-bp(md) {
@@ -26,6 +25,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: -.5em;
+  transform: translateY(-15%);
 }
 
 .c-hire__link-item {
