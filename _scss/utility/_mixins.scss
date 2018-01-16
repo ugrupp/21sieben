@@ -10,9 +10,12 @@
 
 @mixin gradient-text {
   color: $color-gradient-fallback;
-  background: $color-gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+  @supports (-webkit-text-stroke:thin) {
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @mixin font-ci {

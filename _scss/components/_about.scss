@@ -3,6 +3,11 @@
 
   @include mappy-bp(sm) {
     display: flex;
+
+    // explicitly set flex-shrink beacause of https://github.com/philipwalton/flexbugs#flexbug-6
+    > * {
+      flex-shrink: 1;
+    }
   }
 }
 

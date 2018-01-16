@@ -25,6 +25,14 @@ $skills-main-spacing-md: 3em;
 }
 
 .c-skills__masonry-col {
+  & + & {
+    margin-top: 3em;
+
+    @supports (display: grid) {
+      margin-top: 0;
+    }
+  }
+
   > * + * {
     margin-top: $skills-main-spacing;
 

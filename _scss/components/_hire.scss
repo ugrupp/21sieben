@@ -4,11 +4,16 @@
   @include mappy-bp(sm) {
     display: flex;
     align-items: flex-start;
+
+    // explicitly set flex-shrink beacause of https://github.com/philipwalton/flexbugs#flexbug-6
+    > * {
+      flex-shrink: 1;
+    }
   }
 }
 
 .c-hire__links {
-  margin-top: 3em;
+  margin-top: 2.5em;
 
   @include mappy-bp(sm) {
     margin-top: 0;
@@ -25,7 +30,10 @@
   display: flex;
   flex-wrap: wrap;
   margin: -.5em;
-  transform: translateY(-15%);
+
+  @include mappy-bp(md) {
+    transform: translateY(-15%);
+  }
 }
 
 .c-hire__link-item {
