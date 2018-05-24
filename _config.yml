@@ -16,3 +16,6 @@ exclude:
   - Gemfile.lock
 collections:
   - skills
+url: "https://www.21sieben.de" # for sitemap
+plugins:
+  - jekyll-sitemap
