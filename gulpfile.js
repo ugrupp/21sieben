@@ -35,8 +35,6 @@ dotenv.config();
 // NODE_ENV, should default to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// get jekyll comand
-var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
@@ -139,7 +137,10 @@ function plumberErrorHandler(err) {
  */
 gulp.task('jekyll-build', function(done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn(jekyll, ['build'], {
+
+  // get jekyll comand
+  var jekyll = 'bundle';
+  return cp.spawn(jekyll, ['exec', 'jekyll', 'build'], {
       stdio: 'inherit'
     })
     .on('close', done);

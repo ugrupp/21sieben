@@ -24,6 +24,7 @@
 }
 
 // skewed edge
+// (1) fix chrome 1px gradient stop bug
 .l-main__section-edge {
   text-align: center;
   color: transparent;
@@ -33,6 +34,7 @@
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 1em;
+  margin-bottom: -2px; // (1)
 
   background-color: $color-section-bg;
   position: absolute;
@@ -45,16 +47,16 @@
   transform: translateY(100%);
 
   // skew the layer using clip mask (screw IE)
-  clip-path: polygon(0 0, 100% 40%, 100% 101%, 0% 101%);
+  clip-path: polygon(0 0, 100% 40%, 100% calc(100% - 1px), 0% calc(100% - 1px)); // (1)
   height: 4em;
 
   @include mappy-bp(xs) {
-    clip-path: polygon(0 0, 100% 60%, 100% 101%, 0% 101%);
+    clip-path: polygon(0 0, 100% 60%, 100% calc(100% - 1px), 0% calc(100% - 1px)); // (1)
     height: 5em;
   }
 
   @include mappy-bp(xl) {
-    clip-path: polygon(0 0, 100% 80%, 100% 101%, 0% 101%);
+    clip-path: polygon(0 0, 100% 80%, 100% calc(100% - 1px), 0% calc(100% - 1px)); // (1)
     height: 6em;
   }
 
@@ -65,7 +67,7 @@
   .l-main__section ~ .l-main__section &,
   .no-splash & {
     visibility: visible;
-    transform: none;
+    transform: translate3d(0, 0, 0);
   }
 }
 

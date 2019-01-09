@@ -2,8 +2,8 @@
 
 Urs Grupp  
 21sieben  
-Barbarastraße 16  
-79106 Freiburg im Breisgau
+Hauptstraße 6  
+79252 Stegen
 
 ## Kontakt:
 
