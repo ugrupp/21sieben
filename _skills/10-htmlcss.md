@@ -11,7 +11,7 @@ tags:
 - ITCSS
 - CSS Grid
 - Flexbox
-- Jade (Pug)
+- Pug (Jade)
 - Pattern Lab
 - Fractal
 - Bootstrap

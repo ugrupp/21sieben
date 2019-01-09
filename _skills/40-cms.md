@@ -3,13 +3,14 @@ title: CMS/CMF
 primary: false
 tags:
 - Craft CMS
-- PyroCMS
 - ProcessWire
+- PyroCMS
 - eZ Publish
 - Redaxo
 - Wordpress
-- Jekyll
+- Eleventy
 - Gatsby
+- Jekyll
 ---
 
 I take care of integrating a web app or website into a content management system like Craft, ProcessWire, eZ Publish, Redaxo or Wordpress.
