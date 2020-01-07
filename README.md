@@ -17,4 +17,5 @@ https://www.21sieben.de
 * *It all started as a pen*, playing around with anime.js: https://codepen.io/21sieben/pen/YEMwwM
 
 ## Authors
-yeah ... **Urs Grupp - 21sieben**
+**Urs Grupp - 21sieben**  
+created 12/2017

@@ -2,8 +2,8 @@
 
 Urs Grupp  
 21sieben  
-Hauptstraße 6  
-79252 Stegen
+Louise-Otto-Peters-Straße 12  
+79100 Freiburg im Breisgau
 
 ## Kontakt:
 
