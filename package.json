@@ -37,7 +37,7 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "markdown-it-attrs": "^3.0.3",
-    "node-notifier": "^5.1.2",
+    "node-notifier": "^8.0.1",
     "path": "^0.12.7",
     "postcss-reporter": "^5.0.0",
     "postcss-scss": "^1.0.2",
