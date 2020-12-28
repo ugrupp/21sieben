@@ -1,8 +1,9 @@
 ---
+permalink: false
 title: HTML & CSS
 primary: true
 icon: css3
-tags:
+skillTags:
 - SASS
 - LESS
 - PostCSS

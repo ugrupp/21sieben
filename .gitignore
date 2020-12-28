@@ -4,10 +4,9 @@ css
 js
 images
 
-### Jekyll ###
+### Eleventy ###
 _site/
 .sass-cache/
-.jekyll-metadata
 
 ### Node ###
 # Logs
@@ -97,4 +96,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# End of https://www.gitignore.io/api/osx,node,jekyll
+# End of https://www.gitignore.io/api/osx,node

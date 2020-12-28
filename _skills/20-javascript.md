@@ -1,8 +1,9 @@
 ---
+permalink: false
 title: JavaScript
 primary: true
 icon: js
-tags:
+skillTags:
 - ES6
 - Vue.js
 - Vuex

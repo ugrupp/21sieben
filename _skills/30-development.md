@@ -1,7 +1,8 @@
 ---
+permalink: false
 title: Development/Scaffolding
 primary: false
-tags:
+skillTags:
 - webpack
 - gulp
 - Grunt

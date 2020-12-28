@@ -35,10 +35,8 @@ dotenv.config();
 // NODE_ENV, should default to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// get jekyll comand
-var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
-  jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+  eleventyBuild: '<span style="color: grey">Running:</span> $ eleventy build'
 };
 
 // store all gulp plugins in $
@@ -76,7 +74,7 @@ config.globs = {
   js: '_js/**/*.js',
   svg: '_images/svg/*.svg',
   img: '_images/layout/**/*',
-  jekyll: ['_config.yml', '*.html', '_layouts/*.html', '_posts/*', '_includes/**/*', '_skills/*',]
+  eleventy: ['_data/*', '*.html', '.eleventy*', 'static', '_layouts/*.html', '_includes/**/*', '_skills/*',]
 };
 
 
@@ -131,29 +129,29 @@ function plumberErrorHandler(err) {
 }
 
 
-// JEKYLL TASKS
+// ELEVENTY TASKS
 // ==============================
 
 /**
- * Build the Jekyll Site
+ * Build the Eleventy Site
  */
-gulp.task('jekyll-build', function(done) {
-  browserSync.notify(messages.jekyllBuild);
-  return cp.spawn(jekyll, ['build'], {
+gulp.task('eleventy-build', function(done) {
+  browserSync.notify(messages.eleventyBuild);
+  return cp.spawn('npx', ['eleventy'], {
       stdio: 'inherit'
     })
     .on('close', done);
 });
 
 /**
- * Rebuild Jekyll & do page reload
+ * Rebuild Eleventy & do page reload
  */
-gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
+gulp.task('eleventy-rebuild', ['eleventy-build'], function() {
   browserSync.reload();
 });
 
 /**
- * Wait for jekyll-build, then launch the Server
+ * Wait for eleventy-build, then launch the Server
  */
 gulp.task('browser-sync', function() {
   browserSync.init({
@@ -345,10 +343,10 @@ gulp.task('watch', function() {
     gulp.start('svg-rebuild');
   });
 
-  // watch all jekyll files, run jekyll & reload BrowserSync
-  $.watch(config.globs.jekyll, function(vinyl) {
+  // watch all Eleventy files, run Eleventy & reload BrowserSync
+  $.watch(config.globs.eleventy, function(vinyl) {
     $.util.log($.util.colors.underline('\nFile changed: ' + vinyl.relative));
-    gulp.start('jekyll-rebuild');
+    gulp.start('eleventy-rebuild');
   });
 
   // watch all image files, recopy images
@@ -385,7 +383,7 @@ gulp.task('critical', function () {
 // ==============================
 gulp.task('default', callback =>
   runSequence(
-    ['sass', 'scripts', 'svg', 'img', 'jekyll-build'],
+    ['sass', 'scripts', 'svg', 'img', 'eleventy-build'],
     'browser-sync',
     'watch',
     callback
@@ -397,7 +395,7 @@ gulp.task('default', callback =>
 // ==============================
 gulp.task('production', callback =>
   runSequence(
-    ['set-prod-node-env', 'sass', 'scripts', 'svg', 'img', 'jekyll-build'],
+    ['set-prod-node-env', 'sass', 'scripts', 'svg', 'img', 'eleventy-build'],
     callback
   )
 );

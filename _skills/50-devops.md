@@ -1,7 +1,8 @@
 ---
+permalink: false
 title: DevOps
 primary: false
-tags:
+skillTags:
 - Linux
 - Apache
 - MySQL

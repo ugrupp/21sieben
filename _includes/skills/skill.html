@@ -1,21 +1,21 @@
 <div
-  class="c-skill {% if skill.primary %}c-skill--primary{% else %}c-skill--secondary{% endif %}{% if skill.icon %} c-skill--icon{% endif %}"
-  {% unless skill.primary %}data-masonry-item{% endunless %}
+  class="c-skill {% if skill.data.primary %}c-skill--primary{% else %}c-skill--secondary{% endif %}{% if skill.data.icon %} c-skill--icon{% endif %}"
+  {% unless skill.data.primary %}data-masonry-item{% endunless %}
   data-reveal
 >
   {% comment %} Title {% endcomment %}
-  <h4 class="c-skill__headline c-headline c-headline--beta">{{ skill.title }}</h4>
+  <h4 class="c-skill__headline c-headline c-headline--beta">{{ skill.data.title }}</h4>
 
   {% comment %} Content {% endcomment %}
-  {% if skill.content %}
-    <div class="c-skill__content c-article">{{ skill.content }}</div>
+  {% if skill.templateContent %}
+    <div class="c-skill__content c-article">{{ skill.templateContent }}</div>
   {% endif %}
 
   {% comment %} Tags {% endcomment %}
-  {% if skill.tags.size > 0 %}
+  {% if skill.data.skillTags.size > 0 %}
     <div class="c-skill__tags">
       <ul class="c-skill__tags-list">
-        {% for tag in skill.tags %}
+        {% for tag in skill.data.skillTags %}
           <li class="c-skill__tag">{{ tag }}</li>
         {% endfor %}
       </ul>
@@ -23,9 +23,9 @@
   {% endif %}
 
   {% comment %} Watermark icon {% endcomment %}
-  {% if skill.icon %}
+  {% if skill.data.icon %}
     <div class="c-skill__icon">
-      <svg class="o-icon o-icon--fitparent"><use xlink:href="/images/svg/sprite.svg#{{ skill.icon }}"></use></svg>
+      <svg class="o-icon o-icon--fitparent"><use xlink:href="/images/svg/sprite.svg#{{ skill.data.icon }}"></use></svg>
     </div>
   {% endif %}
 </div>

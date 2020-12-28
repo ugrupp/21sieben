@@ -96,7 +96,7 @@ career:
         <div class="c-about__cv" data-reveal>
           <h4 class="c-about__cv-title c-headline c-headline--beta">Working experience</h4>
           <table class="c-about__cv-table">
-            {% for step in page.career %}
+            {% for step in career %}
               <tr class="c-about__cv-tr">
                 <td class="c-about__cv-td c-about__cv-td--time">
                   <div class="c-about__cv-time">{{ step.time }}</div>
@@ -130,8 +130,8 @@ career:
 
         {% comment %} Loop through primary skills {% endcomment %}
         <div class="c-skills__primary">
-          {% for skill in site.skills %}
-            {% if skill.primary %}
+          {% for skill in collections.skills %}
+            {% if skill.data.primary %}
               {% include skills/skill.html %}
             {% endif %}
           {% endfor %}
@@ -144,8 +144,8 @@ career:
           <div class="c-skills__masonry-col" data-masonry-col></div>
 
           {% comment %} Masonry items {% endcomment %}
-          {% for skill in site.skills %}
-            {% unless skill.primary %}
+          {% for skill in collections.skills %}
+            {% unless skill.data.primary %}
               {% include skills/skill.html %}
             {% endunless %}
           {% endfor %}
@@ -176,7 +176,7 @@ career:
 
           <aside class="c-hire__links" data-reveal>
             <ul class="c-hire__links-list">
-              {% for contactLink in page.contactLinks %}
+              {% for contactLink in contactLinks %}
                 <li class="c-hire__link-item">
                   <a class="c-hire__link" href="{{ contactLink.url }}">
                     <div class="c-hire__link-icon">

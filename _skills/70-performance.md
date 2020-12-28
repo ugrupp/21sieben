@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Performance
 primary: false
 ---

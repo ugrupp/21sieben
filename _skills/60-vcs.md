@@ -1,7 +1,8 @@
 ---
+permalink: false
 title: Version control
 primary: false
-tags:
+skillTags:
 - git
 - git-flow
 - Bitbucket

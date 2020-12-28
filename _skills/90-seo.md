@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: SEO
 primary: false
 ---
