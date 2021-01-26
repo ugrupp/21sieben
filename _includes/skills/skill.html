@@ -3,24 +3,26 @@
   {% unless skill.data.primary %}data-masonry-item{% endunless %}
   data-reveal
 >
-  {% comment %} Title {% endcomment %}
-  <h4 class="c-skill__headline c-headline c-headline--beta">{{ skill.data.title }}</h4>
+  <div class="c-skill__inner">
+    {% comment %} Title {% endcomment %}
+    <h4 class="c-skill__headline c-headline c-headline--beta">{{ skill.data.title }}</h4>
 
-  {% comment %} Content {% endcomment %}
-  {% if skill.templateContent %}
-    <div class="c-skill__content c-article">{{ skill.templateContent }}</div>
-  {% endif %}
+    {% comment %} Content {% endcomment %}
+    {% if skill.templateContent %}
+      <div class="c-skill__content c-article">{{ skill.templateContent }}</div>
+    {% endif %}
 
-  {% comment %} Tags {% endcomment %}
-  {% if skill.data.skillTags.size > 0 %}
-    <div class="c-skill__tags">
-      <ul class="c-skill__tags-list">
-        {% for tag in skill.data.skillTags %}
-          <li class="c-skill__tag">{{ tag }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+    {% comment %} Tags {% endcomment %}
+    {% if skill.data.skillTags.size > 0 %}
+      <div class="c-skill__tags">
+        <ul class="c-skill__tags-list">
+          {% for tag in skill.data.skillTags %}
+            <li class="c-skill__tag">{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
 
   {% comment %} Watermark icon {% endcomment %}
   {% if skill.data.icon %}

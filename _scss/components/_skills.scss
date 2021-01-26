@@ -47,35 +47,28 @@ $skills-main-spacing-md: 3em;
 $skill-icon-size-md: 18em;
 
 .c-skill {
-  background: $color-white;
-  color: $color-text;
-  box-shadow: 0 2em 6em .5em rgba(0, 0, 0, .1);
-  padding: 1.5em;
-  border-radius: .5em;
-
+  @include font-smoothing();
   position: relative; // for watermark and to prevent overlapping shadow
 
-  @include mappy-bp(xs) {
-    padding: 2em;
-  }
 
-  @include mappy-bp(sm) {
-    padding: 3em;
-  }
-}
-
-.c-skill--icon {
-  @include mappy-bp(md) {
-    padding-right: $skill-icon-size-md + 2em;
+  // Shadow
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background: $gradientFallback;
+    background: $gradient;
+    filter: blur(5rem);
+    border-radius: 30%;
+    opacity: .3;
   }
 }
 
 .c-skill--primary {
-  background: $gradientFallback;
-  background: $gradient;
-  color: $color-white;
-  @include font-smoothing();
-
   & + & {
     margin-top: $skills-main-spacing;
 
@@ -86,17 +79,6 @@ $skill-icon-size-md: 18em;
 }
 
 .c-skill--secondary {
-  @include font-smoothing(); // looks shit without it .. for no real reason
-  padding-top: 2.5em;
-
-  @include mappy-bp(xs) {
-    padding-top: 3em;
-  }
-
-  @include mappy-bp(sm) {
-    padding-top: 4em;
-  }
-
   // top border
   &::before {
     content: "";
@@ -105,6 +87,7 @@ $skill-icon-size-md: 18em;
     left: 0;
     right: 0;
     top: 0;
+    z-index: 20; // > content & shadow
     background: $gradientFallback;
     background: $gradient;
 
@@ -117,17 +100,62 @@ $skill-icon-size-md: 18em;
     }
   }
 
-
-  // span top border gradient across two columns
-  .c-skills__masonry-col &::before {
+  // span top border gradient and shadow across two columns
+  .c-skills__masonry-col &::before,
+  .c-skills__masonry-col &::after {
     @include mappy-bp(md) {
       background-size: calc(200% + #{$skills-main-spacing-md});
     }
   }
 
-  .c-skills__masonry-col:last-of-type &::before {
-    @include mappy-bp(sm) {
+  .c-skills__masonry-col:last-of-type &::before,
+  .c-skills__masonry-col:last-of-type &::after {
+    @include mappy-bp(md) {
       background-position: right;
+    }
+  }
+}
+
+.c-skill__inner {
+  position: relative;
+  z-index: 10; // > shadow
+  width: 100%;
+
+  background: $color-white;
+  color: $color-text;
+  // box-shadow: 0 2em 4em .5em rgba($color-gradient-fallback, .1);
+  padding: 1.5em;
+  border-radius: .5em;
+
+  @include mappy-bp(xs) {
+    padding: 2em;
+  }
+
+  @include mappy-bp(sm) {
+    padding: 3em;
+  }
+
+  .c-skill--primary & {
+    background: $gradientFallback;
+    background: $gradient;
+    color: $color-white;
+  }
+
+  .c-skill--secondary & {
+    padding-top: 2.5em;
+
+    @include mappy-bp(xs) {
+      padding-top: 3em;
+    }
+
+    @include mappy-bp(sm) {
+      padding-top: 4em;
+    }
+  }
+
+  .c-skill--icon & {
+    @include mappy-bp(md) {
+      padding-right: $skill-icon-size-md + 2em;
     }
   }
 }
@@ -179,4 +207,5 @@ $skill-icon-size-md: 18em;
   position: absolute;
   bottom: 0;
   right: 0;
+  z-index: 20; // > shadow & content
 }
